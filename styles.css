@@ -1,0 +1,792 @@
+/* FUTURISTIC CYBER-DORAEMON PORTFOLIO - SLEEK TECH DESIGN SYSTEM */
+
+/* Google Fonts Import: Outfit (Geometric Futuristic Headings) & Plus Jakarta Sans (Clean Modern Body) */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,700;0,800;0,900;1,400&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+/* Dynamic Theme Variable Tokens (Sleek Cyber Aesthetic) */
+:root {
+    --bg-primary: #F3F8FC; /* Clean futuristic light blue-grey */
+    --text-primary: #0F172A; /* Slate-900 (sharp readable dark) */
+    --text-secondary: #475569; /* Slate-600 */
+    --card-bg: rgba(255, 255, 255, 0.85); /* Semi-transparent ultra glass */
+    --card-border: rgba(0, 145, 216, 0.16); /* Doraemon neon blue translucent border */
+    --card-shadow: 
+        inset 1px 1px 2px rgba(255, 255, 255, 0.9),
+        0 10px 30px -10px rgba(0, 145, 216, 0.12);
+    
+    --star-opacity: 0.03;
+    --grid-opacity: 0.18;
+    --orb-opacity: 0.10;
+    --star-color: #0091D8;
+    --nav-bg: rgba(255, 255, 255, 0.75);
+    --nav-border: rgba(0, 145, 216, 0.18);
+    --bell-glow: rgba(255, 215, 0, 0.25);
+    
+    --collar-color: #FF4B4B;
+    --bell-color: #FFD700;
+}
+
+/* Production Mode (Serious Dark Cyber Theme) */
+.dark {
+    --bg-primary: #050814; /* Deep outer-space dark blue-black */
+    --text-primary: #F8FAFC; /* Slate-50 */
+    --text-secondary: #94A3B8; /* Slate-400 */
+    --card-bg: rgba(10, 17, 34, 0.70); /* Dark metallic glass */
+    --card-border: rgba(255, 255, 255, 0.04); /* Sleek faint border */
+    --card-shadow: 
+        inset 1px 1px 2px rgba(255, 255, 255, 0.06),
+        inset -1px -1px 2px rgba(0, 0, 0, 0.4),
+        0 20px 40px -15px rgba(0, 0, 0, 0.8);
+        
+    --star-opacity: 0.25;
+    --grid-opacity: 0.35;
+    --orb-opacity: 0.18;
+    --star-color: #ffffff;
+    --nav-bg: rgba(10, 17, 34, 0.75);
+    --nav-border: rgba(255, 255, 255, 0.06);
+    --bell-glow: rgba(255, 215, 0, 0.15);
+}
+
+/* Base resets & styles */
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    transition: background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+    transition: background-color 0.6s;
+}
+::-webkit-scrollbar-thumb {
+    background: #0091D8;
+    border-radius: 9999px;
+    border: 2px solid var(--bg-primary);
+    transition: border-color 0.6s, background-color 0.3s;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #FFD700;
+}
+
+/* Starfield twinkles (cyber space matrix feel) */
+.star-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: 
+        radial-gradient(var(--star-color), rgba(255,255,255,0.2) 1px, transparent 30px),
+        radial-gradient(var(--star-color), rgba(255,255,255,0.15) 1px, transparent 20px);
+    background-size: 400px 400px, 250px 250px;
+    background-position: 0 0, 50px 50px;
+    opacity: var(--star-opacity);
+    animation: twinkling 60s linear infinite;
+    transition: opacity 0.6s, background-image 0.6s;
+}
+@keyframes twinkling {
+    from { background-position: 0 0, 50px 50px; }
+    to { background-position: 400px 800px, 500px 550px; }
+}
+
+/* Cyber grid background layer */
+.grid-bg {
+    background-size: 50px 50px;
+    background-image: 
+        linear-gradient(to right, rgba(0, 145, 216, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 145, 216, 0.05) 1px, transparent 1px);
+    opacity: var(--grid-opacity);
+    transition: opacity 0.6s;
+}
+
+/* Deep Space glowing nebulas/orbs */
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    opacity: var(--orb-opacity);
+    pointer-events: none;
+    animation: float 32s ease-in-out infinite alternate;
+    transition: opacity 0.6s;
+}
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(80px, 60px) scale(1.2); }
+    100% { transform: translate(-40px, 120px) scale(0.9); }
+}
+
+/* Sleek Tech Claymorphism Cards (Not too cute, extremely refined) */
+.clay-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
+    border-radius: 20px; /* Sharper corners for a cooler look */
+    transition: 
+        background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.4s ease, 
+        box-shadow 0.4s ease, 
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.clay-card:hover {
+    border-color: rgba(0, 145, 216, 0.5);
+    box-shadow: 
+        inset 1px 1px 2px rgba(255, 255, 255, 0.9),
+        0 20px 40px -15px rgba(0, 145, 216, 0.20),
+        0 0 15px rgba(0, 145, 216, 0.08);
+}
+.dark .clay-card:hover {
+    border-color: rgba(0, 145, 216, 0.45);
+    box-shadow: 
+        inset 1px 1px 2px rgba(255, 255, 255, 0.1),
+        0 0 20px rgba(0, 145, 216, 0.2),
+        0 20px 40px -15px rgba(0, 0, 0, 0.85);
+}
+
+/* Interactive Floating Lift */
+.pocket-lift {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pocket-lift:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 145, 216, 0.5);
+}
+
+/* Cyber glowing text shadows */
+.neon-text-blue {
+    text-shadow: 0 0 8px rgba(0, 145, 216, 0.35), 0 0 15px rgba(0, 145, 216, 0.1);
+}
+.neon-text-gold {
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.35), 0 0 15px rgba(255, 215, 0, 0.1);
+}
+
+/* Advanced Cyber-Crosshair Cursor (Sleek and bad-ass) */
+@media (hover: hover) {
+    #custom-cursor-dot {
+        width: 6px;
+        height: 6px;
+        background: #0091D8;
+        box-shadow: 0 0 8px #0091D8;
+        position: fixed;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 10000;
+        transform: translate(-50%, -50%);
+        transition: width 0.1s, height 0.1s;
+    }
+    #custom-cursor-circle {
+        width: 28px;
+        height: 28px;
+        border: 1px solid rgba(0, 145, 216, 0.4);
+        box-shadow: 0 0 8px rgba(0, 145, 216, 0.05);
+        position: fixed;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: transform 0.06s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.2s, width 0.2s, height 0.2s, background 0.2s;
+    }
+    .cursor-hover #custom-cursor-circle {
+        width: 38px;
+        height: 38px;
+        border-color: #FFD700;
+        background: rgba(255, 215, 0, 0.05);
+    }
+    .cursor-hover #custom-cursor-dot {
+        background: #FFD700;
+        box-shadow: 0 0 8px #FFD700;
+    }
+    .cursor-danger #custom-cursor-circle {
+        width: 38px;
+        height: 38px;
+        border-color: #FF4B4B;
+        background: rgba(255, 75, 75, 0.05);
+    }
+    .cursor-danger #custom-cursor-dot {
+        background: #FF4B4B;
+        box-shadow: 0 0 8px #FF4B4B;
+    }
+}
+
+/* Scroll reveals */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-on-scroll.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reveal-delay-100 { transition-delay: 100ms; }
+.reveal-delay-200 { transition-delay: 200ms; }
+.reveal-delay-300 { transition-delay: 300ms; }
+
+/* Status pill indicator */
+.clay-status {
+    background: rgba(0, 145, 216, 0.06);
+    border: 1px solid rgba(0, 145, 216, 0.2);
+    color: #0091D8;
+    transition: all 0.6s;
+}
+.dark .clay-status {
+    background: rgba(0, 145, 216, 0.12);
+    border: 1px solid rgba(0, 145, 216, 0.25);
+    color: #38BDF8;
+}
+
+/* Wobbling decorative bell */
+.floating-bell {
+    animation: wobble 8s ease-in-out infinite;
+    transform-origin: top center;
+}
+@keyframes wobble {
+    0%, 100% { transform: rotate(0deg); }
+    15% { transform: rotate(-5deg); }
+    30% { transform: rotate(4deg); }
+    45% { transform: rotate(-3deg); }
+    60% { transform: rotate(2deg); }
+    75% { transform: rotate(-1deg); }
+}
+
+/* Typewriter cursor blinking */
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+.typewriter-cursor {
+    border-right: 2px solid #0091D8;
+    animation: blink 0.75s step-end infinite;
+}
+
+/* Sleek Tech picture-in-picture avatar frame */
+.avatar-frame {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: 0 auto;
+}
+@media (min-width: 768px) {
+    .avatar-frame {
+        width: 320px;
+        height: 320px;
+    }
+}
+.avatar-main-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    padding: 6px;
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    box-shadow: var(--card-shadow);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+.avatar-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 18px;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+.avatar-frame:hover .avatar-main-img {
+    transform: scale(1.03);
+}
+
+/* Sub mini picture-in-picture container */
+.avatar-mini-container {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    width: 90px;
+    height: 90px;
+    border-radius: 16px;
+    padding: 3px;
+    background: var(--card-bg);
+    border: 2px solid #FFD700;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: bounceMini 10s ease-in-out infinite;
+}
+@keyframes bounceMini {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-4px) rotate(2deg); }
+}
+.avatar-mini-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.avatar-frame:hover .avatar-mini-container {
+    transform: scale(1.06) rotate(-2deg);
+    border-color: #FF4B4B;
+}
+
+/* Mode toggler gạt nút */
+.avatar-toggle-btn {
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    z-index: 15;
+    background: #0091D8;
+    color: white;
+    border: 1.5px solid #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 145, 216, 0.25);
+    padding: 6px 12px;
+    border-radius: 9999px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.avatar-toggle-btn:hover {
+    background: #FFD700;
+    color: #050814;
+    transform: scale(1.05) translateY(-1px);
+    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.3);
+}
+
+/* Holographic Blueprint Propeller Copter (Sleek futuristic copter feel) */
+.take-copter-icon {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 44px;
+    height: 44px;
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0;
+    filter: drop-shadow(0 0 6px rgba(0, 145, 216, 0.5));
+    transition: opacity 0.5s, transform 0.5s;
+}
+.avatar-frame.doraemon-mode .take-copter-icon {
+    opacity: 1;
+    transform: translateX(-50%) translateY(3px);
+}
+.bamboo-propeller {
+    transform-origin: center center;
+    animation: propeller-spin 0.2s linear infinite;
+}
+@keyframes propeller-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Project dynamic image frame containers */
+.project-img-container {
+    width: 100%;
+    height: 180px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+}
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.project-card:hover .project-img {
+    transform: scale(1.04);
+}
+
+/* Sleek Cyber-Collar and Bell Section Anchor (Signature unique Doraemon motif) */
+.cyber-collar-line {
+    position: relative;
+    height: 2px;
+    background: linear-gradient(90deg, var(--collar-color) 0%, rgba(255, 75, 75, 0.04) 100%);
+    border-radius: 9999px;
+    transition: background 0.4s ease;
+}
+.cyber-collar-bell {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    background: var(--bell-color);
+    border: 1.5px solid var(--bg-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--bell-color);
+    transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s, transform 0.3s;
+}
+.section-header-group:hover .cyber-collar-bell {
+    left: 120px;
+    transform: translate(-50%, -50%) rotate(360deg) scale(1.15);
+}
+.section-header-group:hover .cyber-collar-line {
+    background: linear-gradient(90deg, var(--collar-color) 0%, rgba(255, 75, 75, 0.25) 100%);
+}
+
+/* Futuristic Cyber Toast Notification */
+#cyber-toast-container {
+    pointer-events: none;
+}
+.cyber-toast {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    background: rgba(10, 17, 34, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    border: 1.5px solid rgba(0, 145, 216, 0.25);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cyber-toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+.cyber-toast.hide {
+    transform: translateX(100px);
+    opacity: 0;
+}
+.cyber-toast-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+.cyber-toast-content {
+    flex-grow: 1;
+}
+.cyber-toast-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+.cyber-toast-desc {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 1px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* Success Type */
+.cyber-toast.success {
+    border-left: 4px solid #10B981;
+}
+.cyber-toast.success .cyber-toast-icon-wrapper {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    color: #10B981;
+}
+.cyber-toast.success .cyber-toast-title {
+    color: #10B981;
+}
+
+/* Info Type */
+.cyber-toast.info {
+    border-left: 4px solid #0091D8;
+}
+.cyber-toast.info .cyber-toast-icon-wrapper {
+    background: rgba(0, 145, 216, 0.15);
+    border: 1px solid rgba(0, 145, 216, 0.25);
+    color: #0091D8;
+}
+.cyber-toast.info .cyber-toast-title {
+    color: #0091D8;
+}
+
+/* Warning Type */
+.cyber-toast.warning {
+    border-left: 4px solid #FFD700;
+}
+.cyber-toast.warning .cyber-toast-icon-wrapper {
+    background: rgba(255, 215, 0, 0.15);
+    border: 1px solid rgba(255, 215, 0, 0.25);
+    color: #FFD700;
+}
+.cyber-toast.warning .cyber-toast-title {
+    color: #FFD700;
+}
+
+/* Perfect 2-Page / 1-Page PDF Resume Print Engine overrides */
+@media print {
+    /* Reset basic backgrounds and text colors */
+    body {
+        background: #ffffff !important;
+        color: #0f172a !important;
+        font-size: 10pt !important;
+        line-height: 1.5 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Hide elements that are interactive or unnecessary on paper */
+    header,
+    footer,
+    #custom-cursor-dot,
+    #custom-cursor-circle,
+    .fixed,
+    .avatar-toggle-btn,
+    .take-copter-icon,
+    .avatar-mini-container,
+    .cyber-collar-bell,
+    .cyber-collar-line,
+    #contact,
+    #project-modal,
+    button,
+    .flex.gap-2.mb-10,
+    a.bg-doraemon-blue,
+    .star-bg,
+    .grid-bg,
+    .orb,
+    #cyber-toast,
+    .avatar-frame,
+    .bg-gradient-to-br,
+    .shadow-inner,
+    .shadow-2xl,
+    .shadow-sm,
+    .shadow-md {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Make sure major containers have full size and correct margins */
+    main {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        position: static !important;
+    }
+
+    /* Undo floating headers spacing */
+    main.pt-28 {
+        padding-top: 0 !important;
+    }
+
+    /* Reset grid layout columns to standard blocks for print */
+    .grid, .grid-cols-1, .grid-cols-12 {
+        display: block !important;
+        width: 100% !important;
+    }
+    
+    .lg\:col-span-8, .lg\:col-span-4, .lg\:col-span-12, .lg\:col-span-5, .lg\:col-span-7 {
+        width: 100% !important;
+        display: block !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* Turn claymorphism cards into elegant, minimal academic blocks */
+    .clay-card {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        padding: 0 !important;
+        margin-bottom: 1.5rem !important;
+        border-radius: 0 !important;
+        transform: none !important;
+    }
+
+    /* Layout adjustments for print sections */
+    section {
+        padding: 1rem 0 !important;
+        page-break-inside: avoid !important;
+        border-bottom: 1px solid #e2e8f0 !important;
+    }
+    
+    section:last-of-type {
+        border-bottom: none !important;
+    }
+
+    /* Typography settings */
+    h1 {
+        font-size: 24pt !important;
+        color: #0f172a !important;
+        font-weight: 800 !important;
+        margin-bottom: 0.25rem !important;
+        text-shadow: none !important;
+        text-transform: uppercase !important;
+    }
+
+    /* Keep name in dark blue for corporate highlight */
+    h1 span {
+        color: #0284c7 !important;
+        background: none !important;
+        -webkit-background-clip: unset !important;
+        background-clip: unset !important;
+        -webkit-text-fill-color: initial !important;
+        text-shadow: none !important;
+    }
+
+    h2 {
+        font-size: 14pt !important;
+        color: #0284c7 !important;
+        font-weight: 700 !important;
+        border-bottom: 1.5px solid #0284c7 !important;
+        padding-bottom: 0.2rem !important;
+        margin-top: 1rem !important;
+        margin-bottom: 0.75rem !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.05em !important;
+    }
+
+    h3 {
+        font-size: 11pt !important;
+        font-weight: 700 !important;
+        color: #1e293b !important;
+        margin-top: 0.25rem !important;
+    }
+
+    p, span, li {
+        color: #334155 !important;
+        font-size: 9.5pt !important;
+    }
+
+    strong {
+        color: #0f172a !important;
+        font-weight: 700 !important;
+    }
+
+    /* Experience list alignment */
+    ul {
+        list-style-type: disc !important;
+        padding-left: 1.25rem !important;
+        margin-top: 0.5rem !important;
+    }
+
+    li {
+        margin-bottom: 0.25rem !important;
+        display: list-item !important;
+    }
+
+    /* Keep timelines clean */
+    .relative.border-l {
+        border-left: none !important;
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+    }
+    
+    .relative.group {
+        margin-bottom: 1.5rem !important;
+    }
+
+    .relative.group > span {
+        display: none !important; /* Hide timeline circles */
+    }
+
+    /* Lay out credentials, education, and skills in dense lines */
+    .flex-wrap {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 0.5rem !important;
+    }
+
+    /* Convert skill pills to plain text items separated by bullets */
+    .flex-wrap span {
+        background: none !important;
+        border: none !important;
+        padding: 0 !important;
+        color: #475569 !important;
+        font-weight: 600 !important;
+        font-size: 9pt !important;
+    }
+    
+    .flex-wrap span::after {
+        content: " • ";
+        margin-left: 0.5rem;
+        color: #cbd5e1 !important;
+    }
+    
+    .flex-wrap span:last-child::after {
+        content: "" !important;
+    }
+
+    /* Project Cards clean linear representation */
+    #projects-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    .project-card {
+        border-bottom: 1px dashed #e2e8f0 !important;
+        padding-bottom: 0.75rem !important;
+        margin-bottom: 0 !important;
+    }
+
+    .project-img-container {
+        display: none !important;
+    }
+    
+    .project-card h3 {
+        font-size: 11.5pt !important;
+        margin-bottom: 0.25rem !important;
+    }
+    
+    /* Page breaking controls for professional print boundaries */
+    #hero {
+        page-break-after: avoid !important;
+        min-height: auto !important;
+        padding-bottom: 1.5rem !important;
+        border-bottom: 2px solid #0284c7 !important;
+    }
+    
+    #about {
+        page-break-after: avoid !important;
+    }
+
+    #skills {
+        page-break-after: avoid !important;
+    }
+
+    #experience {
+        page-break-before: always !important; /* Forces experience to Page 2 cleanly */
+    }
+    
+    #projects {
+        page-break-inside: avoid !important;
+    }
+
+    #education {
+        page-break-inside: avoid !important;
+    }
+
+    #credentials {
+        page-break-inside: avoid !important;
+    }
+}
