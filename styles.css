@@ -537,6 +537,229 @@ h1, h2, h3, h4, h5, h6 {
     color: #FFD700;
 }
 
+/* ─────────────────────────────────────────────────────────────
+   AGENT FLOATING LAUNCHER & POPUP PANEL (BOTTOM-RIGHT GUIDE)
+   ───────────────────────────────────────────────────────────── */
+#agent-launcher-wrapper {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#agent-dock {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#agent-dock:hover {
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* Floating bottom-right popup panel */
+.agent-floating-panel {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.92) translateY(20px);
+    transform-origin: bottom right;
+    transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.agent-floating-panel.active {
+    display: flex !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: scale(1) translateY(0);
+}
+
+.agent-panel-card {
+    will-change: transform, opacity;
+}
+
+@media (max-width: 640px) {
+    .agent-floating-panel {
+        right: 12px !important;
+        bottom: 12px !important;
+        left: 12px !important;
+    }
+    .agent-panel-card {
+        width: 100% !important;
+        height: calc(100vh - 24px) !important;
+        max-height: 580px !important;
+    }
+}
+
+/* Quick Suggestion Chip Pills (placed right above input) */
+.agent-chip-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.65rem;
+    border-radius: 9999px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #cbd5e1;
+    font-size: 0.68rem;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-blur: 8px;
+}
+.agent-chip-pill:hover {
+    background: rgba(0, 145, 216, 0.15);
+    border-color: rgba(0, 145, 216, 0.4);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 145, 216, 0.2);
+}
+.agent-chip-pill:active {
+    transform: scale(0.96);
+}
+
+/* Custom scrollbar for chat messages */
+.scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 145, 216, 0.5);
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Chat bubble styling */
+.chat-bubble-user {
+    background: linear-gradient(135deg, #0091D8, #0070A8);
+    color: #ffffff;
+    border-radius: 16px 16px 4px 16px;
+    box-shadow: 0 4px 15px rgba(0, 145, 216, 0.3);
+    font-size: 0.8125rem;
+    line-height: 1.45;
+}
+.chat-bubble-bot {
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+    border-radius: 16px 16px 16px 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+}
+.dark .chat-bubble-bot {
+    background: rgba(10, 17, 34, 0.92);
+    border-color: rgba(0, 145, 216, 0.22);
+}
+
+/* Chat markdown formatted elements */
+.chat-bubble-bot p {
+    margin-bottom: 0.5rem;
+    line-height: 1.55;
+}
+.chat-bubble-bot p:last-child {
+    margin-bottom: 0;
+}
+.chat-bubble-bot strong {
+    color: #38bdf8;
+    font-weight: 700;
+}
+.chat-bubble-bot ul {
+    list-style-type: disc;
+    padding-left: 1.25rem;
+    margin: 0.4rem 0;
+}
+.chat-bubble-bot li {
+    margin-bottom: 0.25rem;
+}
+.chat-bubble-bot .chat-tag {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 6px;
+    background: rgba(0, 145, 216, 0.15);
+    border: 1px solid rgba(0, 145, 216, 0.3);
+    color: #38bdf8;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin: 0.15rem 0.2rem;
+}
+.chat-bubble-bot .chat-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(0, 145, 216, 0.2), rgba(16, 185, 129, 0.2));
+    border: 1px solid rgba(0, 145, 216, 0.4);
+    color: #38bdf8;
+    font-size: 0.72rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.chat-bubble-bot .chat-action-btn:hover {
+    background: linear-gradient(135deg, rgba(0, 145, 216, 0.4), rgba(16, 185, 129, 0.4));
+    border-color: #38bdf8;
+    transform: translateY(-1px);
+    color: #ffffff;
+}
+
+/* Typing pulse dot animation */
+@keyframes typingBounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-5px); }
+}
+.typing-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #0091D8;
+    animation: typingBounce 1.2s infinite ease-in-out;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* Modal Gallery thumbnails */
+.modal-gallery-thumb {
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0.7;
+}
+.modal-gallery-thumb:hover, .modal-gallery-thumb.active {
+    opacity: 1;
+    border-color: #0091D8;
+    box-shadow: 0 0 10px rgba(0, 145, 216, 0.4);
+}
+
+/* Section Target Highlight Animation for Agent Navigation */
+.highlight-section-glow {
+    position: relative;
+    border-radius: 1.5rem !important;
+    outline: 2px solid #0091D8 !important;
+    outline-offset: 6px;
+    box-shadow: 0 0 35px rgba(0, 145, 216, 0.45) !important;
+    animation: pulseGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+    from {
+        box-shadow: 0 0 20px rgba(0, 145, 216, 0.3);
+    }
+    to {
+        box-shadow: 0 0 45px rgba(0, 145, 216, 0.65);
+    }
+}
+
 /* Perfect 2-Page / 1-Page PDF Resume Print Engine overrides */
 @media print {
     /* Reset basic backgrounds and text colors */
@@ -562,6 +785,8 @@ h1, h2, h3, h4, h5, h6 {
     .cyber-collar-line,
     #contact,
     #project-modal,
+    #agent-dock,
+    #agent-chat-modal,
     button,
     .flex.gap-2.mb-10,
     a.bg-doraemon-blue,
