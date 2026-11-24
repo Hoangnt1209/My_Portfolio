@@ -209,7 +209,12 @@ function openProjectModal(id) {
 
     if (data.image && imgEl) {
         imgEl.src = data.image;
-        imgEl.className = "w-full h-full max-h-64 object-contain rounded-xl transition-all duration-300";
+        imgEl.className = "w-full h-full max-h-64 object-contain rounded-xl transition-all duration-300 cursor-zoom-in";
+        imgEl.title = "Click to view full-resolution image in new tab";
+        imgEl.onclick = (e) => {
+            e.stopPropagation();
+            window.open(imgEl.src, "_blank", "noopener,noreferrer");
+        };
         imgEl.classList.remove('hidden');
         if (patternBox) patternBox.classList.add('hidden');
         if (glowBox) glowBox.classList.add('hidden');

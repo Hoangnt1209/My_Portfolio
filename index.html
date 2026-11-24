@@ -180,10 +180,10 @@
 
                 <!-- Action CTAs -->
                 <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center pt-2">
-                    <button onclick="window.print()" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-doraemon-blue hover:bg-doraemon-blue/80 text-white font-heading font-semibold text-xs tracking-wider shadow-[0_6px_20px_rgba(0,145,216,0.2)] border border-doraemon-blue/30 transform hover:-translate-y-0.5 transition-all duration-300 cursor-pointer flex items-center justify-center space-x-2">
-                        <i data-lucide="printer" class="w-4 h-4"></i>
-                        <span>PRINT/PDF RESUME</span>
-                    </button>
+                    <a href="assets/Nguyen_Thanh_Hoang_CV.pdf" download="Nguyen_Thanh_Hoang_CV.pdf" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-doraemon-blue hover:bg-doraemon-blue/80 text-white font-heading font-semibold text-xs tracking-wider shadow-[0_6px_20px_rgba(0,145,216,0.2)] border border-doraemon-blue/30 transform hover:-translate-y-0.5 transition-all duration-300 cursor-pointer flex items-center justify-center space-x-2">
+                        <i data-lucide="download" class="w-4 h-4"></i>
+                        <span>DOWNLOAD CV (PDF)</span>
+                    </a>
                     
                     <a href="#projects" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/80 dark:bg-transparent hover:bg-slate-100 dark:hover:bg-slate-900/60 text-slate-700 dark:text-slate-300 font-heading font-semibold text-xs tracking-wider border border-[#0091D8]/15 dark:border-white/5 hover:border-doraemon-blue/40 transform hover:-translate-y-0.5 transition-all duration-300 cursor-pointer flex items-center justify-center space-x-2 shadow-sm">
                         EXPLORE WORK
@@ -892,8 +892,8 @@
                     </button>
                 </div>
 
-                <!-- Project 3 (Enterprise MLOps Video Anomaly Detection Pipeline) -->
-                <div class="project-card clay-card p-6 flex flex-col justify-between pocket-lift hover:shadow-[0_20px_45px_rgba(245,158,11,0.18)] duration-300 border border-amber-500/25 rounded-3xl" data-category="mlops">
+                <!-- Project 3 (Floren AI — Remote Contract Production Platform) -->
+                <div id="project-floren" class="project-card clay-card p-6 flex flex-col justify-between pocket-lift hover:shadow-[0_20px_45px_rgba(244,63,94,0.2)] duration-300 border border-rose-500/30 rounded-3xl" data-category="nlp">
                     <div class="space-y-4">
                         <!-- macOS Window Frame -->
                         <div class="rounded-2xl overflow-hidden border border-white/10 bg-slate-950 shadow-xl relative group/img">
@@ -904,65 +904,65 @@
                                     <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
                                 </div>
                                 <div class="px-2.5 py-0.5 rounded-md bg-slate-950/80 border border-white/10 text-[9px] font-mono text-slate-400 flex items-center space-x-1">
-                                    <i data-lucide="lock" class="w-2 h-2 text-amber-400"></i>
-                                    <span>mlops.hoang.ai</span>
+                                    <i data-lucide="lock" class="w-2 h-2 text-rose-400"></i>
+                                    <span>floren.studio</span>
                                 </div>
-                                <span class="px-2 py-0.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-[9px] font-bold text-amber-400 uppercase">
-                                    MLOPS CI/CD
+                                <span class="px-2 py-0.5 rounded-full bg-rose-500/15 border border-rose-500/30 text-[9px] font-bold text-rose-300 uppercase">
+                                    REMOTE CONTRACT
                                 </span>
                             </div>
-                            <!-- Visual Display -->
-                            <div class="h-48 overflow-hidden relative flex items-center justify-center bg-slate-950">
-                                <img src="assets/project_mlops.png" alt="MLOps Pipeline" class="w-full h-full object-cover transform group-hover/img:scale-105 transition-transform duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                            <!-- Architecture Diagram Preview -->
+                            <div class="h-48 overflow-hidden relative flex items-center justify-center bg-white p-1.5 cursor-pointer" onclick="openProjectModal(3)">
+                                <img src="assets/floren_architecture.jpg" alt="Floren AI System Architecture" class="w-full h-full object-contain transform group-hover/img:scale-105 transition-transform duration-500">
+                                <span class="absolute bottom-2 right-2 px-2 py-0.5 rounded-md bg-slate-900/85 text-[9px] font-bold text-white backdrop-blur">5 Screens + Architecture</span>
                             </div>
                         </div>
 
                         <!-- Header & Meta -->
                         <div>
                             <div class="flex items-start justify-between gap-2 mb-1.5">
-                                <h3 class="font-heading text-lg font-bold text-slate-800 dark:text-white leading-tight">Enterprise MLOps Video Anomaly Detection Pipeline</h3>
+                                <h3 class="font-heading text-lg font-bold text-slate-800 dark:text-white leading-tight">Floren AI — Omnichannel Flower Commerce & Operations Platform</h3>
                                 <div class="flex items-center space-x-1.5 text-slate-400 flex-shrink-0">
-                                    <a href="https://github.com/Hoangnt1209" target="_blank" class="p-1 rounded-lg hover:text-white hover:bg-white/10 transition-colors" title="Source Code">
+                                    <a href="https://github.com/Hoangnt1209/floren-ai" target="_blank" rel="noopener noreferrer" class="p-1 rounded-lg hover:text-white hover:bg-white/10 transition-colors" title="Source Code">
                                         <i data-lucide="github" class="w-4 h-4"></i>
                                     </a>
-                                    <button onclick="openProjectModal(3)" class="p-1 rounded-lg hover:text-amber-400 hover:bg-amber-500/10 transition-colors" title="Inspect Specs">
+                                    <button onclick="openProjectModal(3)" class="p-1 rounded-lg hover:text-rose-400 hover:bg-rose-500/10 transition-colors" title="Inspect Architecture & Screenshots">
                                         <i data-lucide="external-link" class="w-4 h-4"></i>
                                     </button>
                                 </div>
                             </div>
                             <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed line-clamp-2">
-                                Fully reproducible video anomaly detection lifecycle featuring automated experiment telemetry, data versioning, and Docker containerization.
+                                Production remote-contract AI flower commerce &amp; admin SaaS: LangGraph + Gemini concierge across Web/Messenger/IG, PayOS/VietQR webhooks, and automated FB/IG scheduling.
                             </p>
                         </div>
 
                         <!-- 3 Micro-Metrics -->
                         <div class="grid grid-cols-3 gap-1.5 text-center select-none">
-                            <div class="px-1.5 py-1 rounded-lg bg-slate-900/60 border border-amber-500/20">
-                                <div class="text-[8px] text-slate-400 font-bold uppercase">Tracking</div>
-                                <div class="text-[10px] font-mono font-bold text-amber-400">MLflow Runs</div>
+                            <div class="px-1.5 py-1 rounded-lg bg-slate-900/60 border border-rose-500/20">
+                                <div class="text-[8px] text-slate-400 font-bold uppercase">AI Engine</div>
+                                <div class="text-[10px] font-mono font-bold text-rose-400">LangGraph + Gemini</div>
                             </div>
-                            <div class="px-1.5 py-1 rounded-lg bg-slate-900/60 border border-amber-500/20">
-                                <div class="text-[8px] text-slate-400 font-bold uppercase">Versioning</div>
-                                <div class="text-[10px] font-mono font-bold text-sky-400">lakeFS Git-Data</div>
+                            <div class="px-1.5 py-1 rounded-lg bg-slate-900/60 border border-rose-500/20">
+                                <div class="text-[8px] text-slate-400 font-bold uppercase">Integrations</div>
+                                <div class="text-[10px] font-mono font-bold text-emerald-400">PayOS &amp; Meta API</div>
                             </div>
-                            <div class="px-1.5 py-1 rounded-lg bg-slate-900/60 border border-amber-500/20">
-                                <div class="text-[8px] text-slate-400 font-bold uppercase">Deploy</div>
-                                <div class="text-[10px] font-mono font-bold text-emerald-400">Dockerized API</div>
+                            <div class="px-1.5 py-1 rounded-lg bg-slate-900/60 border border-rose-500/20">
+                                <div class="text-[8px] text-slate-400 font-bold uppercase">Quality</div>
+                                <div class="text-[10px] font-mono font-bold text-sky-400">115 Pytest Tests</div>
                             </div>
                         </div>
 
                         <!-- Tech Stack Tags -->
                         <div class="flex flex-wrap gap-1.5 pt-1">
-                            <span class="text-[10px] bg-amber-500/10 border border-amber-500/30 px-2 py-0.5 rounded-md text-amber-400 font-semibold">PyTorch</span>
-                            <span class="text-[10px] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-md text-slate-300 font-semibold">MLflow</span>
-                            <span class="text-[10px] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-md text-slate-300 font-semibold">lakeFS</span>
-                            <span class="text-[10px] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-md text-slate-300 font-semibold">Docker</span>
+                            <span class="text-[10px] bg-rose-500/10 border border-rose-500/30 px-2 py-0.5 rounded-md text-rose-300 font-semibold">FastAPI &amp; Next.js 15</span>
+                            <span class="text-[10px] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-md text-slate-300 font-semibold">LangGraph</span>
+                            <span class="text-[10px] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-md text-slate-300 font-semibold">PayOS / VietQR</span>
+                            <span class="text-[10px] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-md text-slate-300 font-semibold">Meta Graph API</span>
                         </div>
                     </div>
                     
-                    <button onclick="openProjectModal(3)" class="w-full mt-5 py-3 rounded-xl border border-amber-500/30 hover:border-amber-400 hover:bg-amber-500/15 font-heading text-[10px] text-amber-300 font-bold tracking-widest cursor-pointer flex items-center justify-center space-x-2 transition-all duration-300 uppercase shadow-sm">
-                        <span>ANALYZE ARCHITECTURE & SPECS →</span>
+                    <button onclick="openProjectModal(3)" class="w-full mt-5 py-3 rounded-xl border border-rose-500/35 hover:border-rose-400 hover:bg-rose-500/15 font-heading text-[10px] text-rose-300 font-bold tracking-widest cursor-pointer flex items-center justify-center space-x-2 transition-all duration-300 uppercase shadow-sm">
+                        <span>VIEW ARCHITECTURE &amp; GALLERY →</span>
                     </button>
                 </div>
 

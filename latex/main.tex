@@ -1,0 +1,160 @@
+\documentclass[10pt]{resume}
+
+\usepackage[left=0.45in,top=0.35in,right=0.45in,bottom=0.35in]{geometry}
+\usepackage{fontawesome5}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\hypersetup{colorlinks=false, hidelinks}
+
+\linespread{1.03}
+\setlist[itemize]{itemsep=1.2pt, parsep=0pt, topsep=1.2pt, leftmargin=*}
+
+\name{\textbf{Nguyen Thanh Hoang}}
+\address{
+  \href{tel:+84989068343}{\faPhone\ +84 989 068 343} \quad
+  \href{mailto:nth120923@gmail.com}{\faEnvelope\ nth120923@gmail.com} \quad
+  \href{https://www.linkedin.com/in/hoangnt1209}{\faLinkedin\ hoangnt1209} \\[2pt]
+  \href{https://github.com/Hoangnt1209}{\faGithub\ Hoangnt1209} \quad\quad
+  \href{https://nguyenthanhhoang.netlify.app/}{\faGlobe\ Portfolio}
+}
+
+\makeatletter
+\renewcommand{\printname}{%
+  \begin{center}
+    {\MakeUppercase{\namesize\bfseries Nguyen Thanh Hoang}}\\[5pt]
+    \small
+    \href{tel:+84989068343}{\faPhone\ +84 989 068 343} \quad
+    \href{mailto:nth120923@gmail.com}{\faEnvelope\ nth120923@gmail.com} \quad
+    \href{https://www.linkedin.com/in/hoangnt1209}{\faLinkedin\ hoangnt1209} \\[2pt]
+    \href{https://github.com/Hoangnt1209}{\faGithub\ Hoangnt1209} \quad\quad\quad
+    \href{https://nguyenthanhhoang.netlify.app/}{\faGlobe\ Portfolio}
+  \end{center}
+  \par\vspace{0.15em}
+}
+\renewcommand{\printaddress}[1]{}
+\makeatother
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+\begin{rSection}{SUMMARY}
+
+AI Engineer (M.S. candidate in Software Engineering -- AI) specializing in \textbf{LangGraph multi-agent systems, production RAG pipelines, and computer vision} with \textbf{Python, FastAPI, and Next.js}. Experienced shipping end-to-end AI products from data ingestion and vector search to live client deployments.
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+\begin{rSection}{TECHNICAL SKILLS}
+
+\begin{itemize}
+    \item \textbf{AI \& LLM:} LangGraph, LangChain, RAG, Hybrid Search (BM25 + Dense), Prompt Engineering, LLM Evaluation, OpenAI / Gemini / Anthropic APIs, Hugging Face
+    \item \textbf{Computer Vision:} PyTorch, YOLOv6/v8/v26, DETR, OpenCV, OCR, MediaPipe, ONNX Runtime, Triton Inference Server
+    \item \textbf{Backend \& Data:} Python, FastAPI, Pydantic, SQLAlchemy, Alembic, PostgreSQL, pgvector, Qdrant, FAISS, REST APIs \& Webhooks
+    \item \textbf{Frontend, MLOps \& QA:} Next.js, TypeScript, Docker, MLflow, lakeFS, GitHub Actions CI, pytest, mypy, ruff
+\end{itemize}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+\begin{rSection}{EXPERIENCE}
+
+\textbf{AI Engineer} --- Future Space Technology JSC \hfill Jan 2026 -- Present
+\begin{itemize}
+    \item Built a multi-agent \textbf{LangGraph} workflow (Crawler, Writer, Publisher) automating web-to-persona content generation with OpenAI and Gemini APIs.
+    \item Trained and evaluated \textbf{YOLO26} and \textbf{DETR} models for small-insect detection on sticky-paper trap imagery for offline edge inference.
+    \item Engineered \textbf{FastAPI} backend services with strict \textbf{Pydantic} validation, driving code reviews and technical API documentation.
+\end{itemize}
+
+\textbf{AI Engineer (Remote, Part-time)} --- UMMO \hfill Jan 2026 -- Apr 2026
+\begin{itemize}
+    \item Engineered conversational LLM agent workflows for an AI-assisted teaching and learning platform.
+    \item Built an OCR and document ingestion pipeline for course materials and scanned PDFs, automating text extraction, chunking, and vector embedding generation.
+    \item Benchmarked and integrated \textbf{FAISS, Pinecone, and PostgreSQL/pgvector} to power low-latency RAG question answering.
+\end{itemize}
+
+\textbf{AI Engineer Intern} --- FPT Software Ho Chi Minh \hfill Sep 2025 -- Nov 2025
+\begin{itemize}
+    \item Engineered LLM-assisted code translation workflows using OpenAI and Gemini APIs to accelerate legacy \textbf{COBOL} and \textbf{RPG} migration to \textbf{Java}.
+    \item Developed an internal specification-to-test-case generator that parsed business requirements into structured QA suites exported to Excel.
+\end{itemize}
+
+\textbf{Full-Stack AI Intern} --- FPT Academy Quy Nhon \hfill Jan 2024 -- Apr 2024
+\begin{itemize}
+    \item Built a hybrid \textbf{RAG and semantic CV--JD matching backend} using LangChain and \textbf{Qdrant}, cutting manual HR candidate screening time by over 80\%.
+    \item Designed a decoupled \textbf{FastAPI} client-server API and React dashboard serving real-time candidate compatibility scoring.
+\end{itemize}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+\begin{rSection}{PROJECTS}
+
+\textbf{Floren AI --- AI-Assisted E-Commerce \& Operations Platform \textit{(Remote Client)}}
+\hfill \textit{FastAPI, Next.js, LangGraph, Gemini, Meta API}
+\hfill \href{https://github.com/Hoangnt1209/floren-ai}{\faGithub\ Repo}
+
+\begin{itemize}
+    \item Built a stateful \textbf{LangGraph} and \textbf{Gemini} shopping assistant across Web, Messenger, and Instagram DM, isolating pricing, inventory reservation, and order state transitions into deterministic backend tools to prevent LLM hallucinations.
+    \item Translated requirements from a non-technical retail client into a \textbf{Next.js} storefront and admin dashboard with automated \textbf{PayOS/VietQR} deposit reconciliation, scheduled Facebook/Instagram publishing, and human-in-the-loop chat handoff.
+    \item Hardened production APIs with \textbf{HttpOnly} cookie authentication, HMAC webhook verification, SSRF/upload sanitization, and \textbf{115 automated pytest tests} enforced by strict \texttt{mypy} and \texttt{ruff} checks.
+\end{itemize}
+
+\textbf{Multi-Source RAG Q\&A Engine}
+\hfill \textit{LangChain, Hugging Face, FAISS, pgvector, LLaMA}
+
+\begin{itemize}
+    \item Engineered an end-to-end RAG ingestion and retrieval pipeline over noisy PDFs and CSV spreadsheets with custom semantic chunking, dense embeddings, and context-grounded LLaMA generation.
+    \item Evaluated chunking strategies and vector index configurations across FAISS and pgvector to improve retrieval relevance on domain-specific queries.
+\end{itemize}
+
+\textbf{Automated Bakery Self-Checkout \& Pastry Detection}
+\hfill \textit{PyTorch, YOLOv6/v8, ONNX, Triton Server, OpenCV}
+
+\begin{itemize}
+    \item Built an edge computer vision checkout pipeline detecting multi-class pastries on trays and computing real-time totals, achieving \textbf{70\%--80\% detection accuracy} on a custom \textbf{70,000+ image} dataset scraped via AutoCrawler and annotated with LabelImg.
+    \item Exported trained models to \textbf{ONNX Runtime} and deployed on \textbf{Triton Inference Server} for sub-10ms real-time billing inference.
+\end{itemize}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+\begin{rSection}{EDUCATION}
+
+\textbf{Master of Software Engineering (AI Concentration)}
+--- FPT School of Business \& Technology
+\hfill 2025 -- Present
+
+\textbf{Bachelor of Artificial Intelligence}
+--- FPT University \textit{(GPA: 3.4/4.0)}
+\hfill 2021 -- 2025
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+\begin{rSection}{PUBLICATION \& CERTIFICATIONS}
+
+\begin{itemize}
+    \item \href{https://ctujs.ctu.edu.vn/index.php/ctujs/article/view/716}
+    {\textbf{MediaPipe Optimization for Real-Time Sign Language Recognition}}
+    --- \textit{Can Tho Univ. Journal of Science}
+
+    \item \href{https://www.coursera.org/account/accomplishments/specialization/SNVPADABDEJE}
+    {\textbf{NLP Specialization}}
+    --- DeepLearning.AI
+    \quad
+    \href{https://www.coursera.org/account/accomplishments/specialization/9487QFFKTT67}
+    {\textbf{IBM AI Enterprise Workflow}}
+    --- IBM
+
+    \item \href{https://www.coursera.org/account/accomplishments/specialization/VNFNEQYKKLFH}
+    {\textbf{TensorFlow Developer Certificate}}
+    --- DeepLearning.AI
+    \quad
+    \href{https://www.coursera.org/account/accomplishments/specialization/LPDSP3FLTGYH}
+    {\textbf{IBM Full Stack Developer}}
+    --- IBM
+\end{itemize}
+
+\end{rSection}
+
+\end{document}

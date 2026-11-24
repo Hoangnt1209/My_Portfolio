@@ -28,6 +28,13 @@ const SUGGESTED_PROMPTS = [
         action: { type: "navigate_to_section", target: "project-vietstock" }
     },
     {
+        id: "floren-ai",
+        label: "Floren AI (Remote Project)",
+        prompt: "Tell me about Floren AI — the remote flower commerce & AI agent platform.",
+        icon: "🌸",
+        action: { type: "navigate_to_section", target: "project-floren" }
+    },
+    {
         id: "pastry-checkout",
         label: "Bakery Self-Checkout AI",
         prompt: "Tell me about the Automated Bakery Self-Checkout & Pastry Detection system.",
@@ -120,7 +127,7 @@ const TOUR_STEPS = [
         total: 5,
         title: "Get in Touch & PDF Resume",
         target: "contact",
-        summary: "Ready to collaborate! You can reach Hoang directly via phone at <strong>+84 989 068 343</strong>, email at <strong>nth120923@gmail.com</strong>, LinkedIn, or print/download his PDF resume instantly."
+        summary: "Ready to collaborate! You can reach Hoang directly via phone at <strong>+84 989 068 343</strong>, email at <strong>nth120923@gmail.com</strong>, LinkedIn, or download his PDF CV directly."
     }
 ];
 
@@ -401,9 +408,9 @@ function finishTour() {
         <p>🎉 <strong>You have completed the guided portfolio tour!</strong></p>
         <p class="text-slate-300">Thank you for exploring. You can download Hoang's PDF resume or connect directly via Email and LinkedIn.</p>
         <div class="flex flex-wrap gap-2 mt-2">
-            <button onclick="window.print()" class="chat-action-btn">
-                <span>🖨️ Print / Save PDF Resume</span>
-            </button>
+            <a href="assets/Nguyen_Thanh_Hoang_CV.pdf" download="Nguyen_Thanh_Hoang_CV.pdf" class="chat-action-btn">
+                <span>📄 Download CV (PDF)</span>
+            </a>
             <button onclick="navigateToSection('contact', true)" class="chat-action-btn">
                 <span>📬 Get in Touch</span>
             </button>
@@ -509,6 +516,28 @@ function generateAgentResponse(query, targetOverride = null, targetSuccess = tru
                 <button onclick="navigateToSection('project-vietstock', true)" class="chat-action-btn">
                     <span>👇 View Project Card</span>
                 </button>
+            </div>
+        `;
+    }
+
+    // 1B. Floren AI Query
+    else if (q.includes('floren') || q.includes('flower') || q.includes('payos') || q.includes('remote') || q.includes('messenger') || q.includes('instagram')) {
+        scrollTarget = scrollTarget || 'project-floren';
+        responseHtml = `
+            <p>🌸 <strong>Floren AI — Omnichannel Flower Commerce & Operations Platform (Remote Contract)</strong></p>
+            <p>A production full-stack AI commerce platform delivered remotely for a Vietnamese flower studio:</p>
+            <ul class="text-xs space-y-1 my-1.5">
+                <li>• <strong>Omnichannel LangGraph Concierge:</strong> Gemini tool-calling agent across Web, Messenger, and Instagram DM with deterministic pricing and 1-tap Human Takeover.</li>
+                <li>• <strong>Payment & Fulfillment:</strong> PayOS + VietQR 10-minute payment intents, HMAC webhooks, florist real-photo approval, and subscribable <code>.ics</code> calendar feeds.</li>
+                <li>• <strong>Automated Social & Security:</strong> 60s async Meta Graph API (FB/IG) scheduler, HttpOnly cookie auth, SSRF/CSRF guards, Pillow EXIF-free uploads, and 115 pytest tests.</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-2">
+                <button onclick="openProjectModal(3)" class="chat-action-btn bg-rose-500/20 text-rose-300 border-rose-500/40 hover:bg-rose-500/30">
+                    <span>📐 View Architecture & Screenshots</span>
+                </button>
+                <a href="https://github.com/Hoangnt1209/floren-ai" target="_blank" rel="noopener noreferrer" class="chat-action-btn">
+                    <span>💻 GitHub Repo ↗</span>
+                </a>
             </div>
         `;
     }
@@ -639,9 +668,9 @@ function generateAgentResponse(query, targetOverride = null, targetSuccess = tru
                 <li>• <strong>GitHub:</strong> <a href="https://github.com/Hoangnt1209" target="_blank" rel="noopener noreferrer" class="text-doraemon-blue font-bold hover:underline">github.com/Hoangnt1209</a></li>
             </ul>
             <div class="flex flex-wrap gap-2 mt-2">
-                <button onclick="window.print()" class="chat-action-btn">
-                    <span>🖨️ Print / Save PDF Resume</span>
-                </button>
+                <a href="assets/Nguyen_Thanh_Hoang_CV.pdf" download="Nguyen_Thanh_Hoang_CV.pdf" class="chat-action-btn">
+                    <span>📄 Download CV (PDF)</span>
+                </a>
                 <button onclick="navigateToSection('contact', true)" class="chat-action-btn">
                     <span>👇 Go to Transmission Form</span>
                 </button>
