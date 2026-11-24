@@ -1,1460 +1,768 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nguyễn Thanh Hoàng - AI Engineer based in HCMC. Specialized in building machine learning solutions, RAG pipelines, and computer vision systems.">
-    <meta name="keywords" content="AI Engineer, RAG, LangChain, Machine Learning, Computer Vision, MLOps, Nguyễn Thanh Hoàng, Portfolio">
-    <meta name="author" content="Nguyễn Thanh Hoàng">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#F3F8FC">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nguyễn Thanh Hoàng — AI Engineer specializing in LangGraph multi-agent systems, production RAG pipelines, and computer vision.">
+  <meta name="author" content="Nguyễn Thanh Hoàng">
+  <meta name="theme-color" content="#fbf9f6">
+  <title>Nguyễn Thanh Hoàng — AI Engineer</title>
 
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Nguyễn Thanh Hoàng | AI Engineer">
-    <meta property="og:description" content="AI Engineer building production machine learning solutions, custom RAG pipelines, and computer vision systems.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1964&auto=format&fit=crop">
-    <meta property="twitter:card" content="summary_large_image">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
 
-    <title>Nguyễn Thanh Hoàng | AI Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Tailwind Custom Configuration -->
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        doraemon: {
-                            blue: '#0091D8',
-                            red: '#FF4B4B',
-                            gold: '#FFD700',
-                            dark: '#050814',
-                            card: '#0a1122',
-                            glow: 'rgba(0, 145, 216, 0.4)',
-                        }
-                    },
-                    fontFamily: {
-                        heading: ['Outfit', 'sans-serif'],
-                        body: ['Plus Jakarta Sans', 'sans-serif'],
-                    },
-                    borderRadius: {
-                        'xl': '16px',
-                        '2xl': '20px',
-                        '3xl': '24px'
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- Google Fonts with full Latin & Vietnamese character subsets -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Outfit:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-
-    <!-- FUTURISTIC CYBER STYLING LINK -->
-    <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
-<body class="relative antialiased selection:bg-doraemon-blue selection:text-white">
-
-    <!-- Custom Follower Cursors -->
-    <div id="custom-cursor-dot" class="hidden md:block"></div>
-    <div id="custom-cursor-circle" class="hidden md:block"></div>
-
-    <!-- STARLIGHT COSMIC BACKGROUND -->
-    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <div class="star-bg"></div>
-        <div class="grid-bg absolute inset-0"></div>
-        
-        <!-- Animated Giant Glowing Nebulas (Doraemon Color DNA) -->
-        <div class="orb w-[400px] h-[400px] bg-doraemon-blue/15 dark:bg-doraemon-blue/10 top-[8%] left-[-8%]"></div>
-        <div class="orb w-[300px] h-[300px] bg-doraemon-red/5 dark:bg-doraemon-red/5 bottom-[15%] right-[-5%]"></div>
-        <div class="orb w-[280px] h-[280px] bg-doraemon-gold/10 dark:bg-doraemon-gold/5 top-[50%] left-[38%]"></div>
-    </div>
-
-    <!-- FLOATING SLEEK NAVBAR -->
-    <header class="fixed top-4 left-4 right-4 z-50 flex justify-center items-center pointer-events-none">
-        <nav class="w-full max-w-5xl bg-white/80 dark:bg-slate-950/75 backdrop-blur-xl border border-[#0091D8]/15 dark:border-white/5 px-4 md:px-8 py-3 rounded-2xl flex justify-between items-center shadow-2xl pointer-events-auto transition-all duration-300">
-            <!-- Brand Logo with Minimalist Futuristic Gold Bell -->
-            <a href="#hero" class="flex items-center space-x-2.5 group cursor-pointer" aria-label="Home">
-                <div class="w-9 h-9 rounded-xl bg-doraemon-blue/10 border border-doraemon-blue/20 flex items-center justify-center relative overflow-hidden transition-all duration-300 group-hover:border-doraemon-gold/45 group-hover:bg-doraemon-blue/20 shadow-inner">
-                    <!-- High-Fidelity Futuristic Bell SVG -->
-                    <svg class="w-5.5 h-5.5 text-doraemon-gold floating-bell group-hover:scale-105 transition-transform duration-300" viewBox="0 0 24 24" fill="currentColor">
-                        <circle cx="12" cy="12" r="10" fill="#FFD700" stroke="#050814" stroke-width="1.2" />
-                        <rect x="7" y="8" width="10" height="2" rx="0.5" fill="#FF4B4B" />
-                        <circle cx="12" cy="13.5" r="2.2" fill="#050814" />
-                        <line x1="12" y1="15.8" x2="12" y2="21" stroke="#050814" stroke-width="2" />
-                    </svg>
-                </div>
-                <span class="font-heading text-base font-bold tracking-widest bg-gradient-to-r from-doraemon-blue via-[#FF4B4B] to-doraemon-gold bg-clip-text text-transparent group-hover:from-doraemon-blue group-hover:to-doraemon-gold transition-all duration-300">N.T.HOANG</span>
-            </a>
-
-            <!-- Navigation Links (Sleek English & Vietnamese) -->
-            <div class="hidden md:flex space-x-1 lg:space-x-1.5 text-xs font-semibold uppercase tracking-wider">
-                <a href="#hero" class="px-3 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-doraemon-blue hover:bg-doraemon-blue/10 transition-all duration-200 cursor-pointer">HOME</a>
-                <a href="#about" class="px-3 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-doraemon-blue hover:bg-doraemon-blue/10 transition-all duration-200 cursor-pointer">ABOUT</a>
-                <a href="#skills" class="px-3 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-doraemon-blue hover:bg-doraemon-blue/10 transition-all duration-200 cursor-pointer">SKILLS</a>
-                <a href="#experience" class="px-3 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-doraemon-blue hover:bg-doraemon-blue/10 transition-all duration-200 cursor-pointer">TIMELINE</a>
-                <a href="#education" class="px-3 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-doraemon-blue hover:bg-doraemon-blue/10 transition-all duration-200 cursor-pointer">EDUCATION</a>
-                <a href="#projects" class="px-3 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-doraemon-blue hover:bg-doraemon-blue/10 transition-all duration-200 cursor-pointer">PROJECTS</a>
-                <a href="#contact" class="px-3 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-doraemon-blue hover:bg-doraemon-blue/10 transition-all duration-200 cursor-pointer">CONNECT</a>
-            </div>
-
-            <!-- Connect & Language Container -->
-            <div class="flex items-center space-x-3 pointer-events-auto">
-                <!-- Connect Button -->
-                <a href="#contact" class="bg-doraemon-blue hover:bg-doraemon-blue/80 text-white font-heading font-semibold text-xs tracking-wider px-5 py-2.5 rounded-xl border border-doraemon-blue/20 shadow-[0_4px_10px_rgba(0,145,216,0.15)] hover:shadow-[0_4px_18px_rgba(0,145,216,0.4)] transition-all duration-300 cursor-pointer">LAUNCH</a>
-            </div>
-        </nav>
-    </header>
-
-    <!-- MAIN WRAPPER -->
-    <main class="relative z-10 w-full max-w-6xl mx-auto px-4 md:px-8 pt-28">
-
-        <!-- 1. HERO SECTION -->
-        <section id="hero" class="min-h-[80vh] flex flex-col lg:flex-row items-center justify-between py-12 gap-12 relative">
-            <!-- Left column: Tech Bio & Text content -->
-            <div class="w-full lg:w-3/5 text-center lg:text-left space-y-5">
-                <!-- Theme Status Pill -->
-                <div class="clay-status inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-xl text-[10px] font-bold tracking-widest uppercase">
-                    <span class="w-2 h-2 rounded-full bg-[#10B981] shadow-[0_0_8px_#10B981]"></span>
-                    <span id="theme-status-text">AI ENGINEER • HO CHI MINH CITY</span>
-                </div>
-
-                <!-- Main Title with Custom Glow and Vietnamese diacritics optimized Outfit Font -->
-                <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight" style="font-family: 'Be Vietnam Pro', sans-serif;">
-                    NGUYỄN THANH <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-doraemon-blue via-doraemon-red to-doraemon-gold neon-text-blue">HOÀNG</span>
-                </h1>
-
-                <!-- Subtitle with Interactive Typewriter Effect -->
-                <div class="h-8 flex justify-center lg:justify-start items-center">
-                    <p class="text-base sm:text-lg md:text-xl text-slate-700 dark:text-slate-300 font-bold tracking-wide">
-                        <span id="typewriter-text" class="typewriter-cursor pr-1"></span>
-                    </p>
-                </div>
-
-                <!-- Bio Intro (Sleek professional wording) -->
-                <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-2xl leading-relaxed">
-                    AI Engineer specializing in machine learning solutions, custom RAG architectures, and computer vision systems that deliver reliable, high-performance results.
-                </p>
-
-                <!-- Contact Information Bar (Clean style) -->
-                <div class="flex flex-wrap justify-center lg:justify-start gap-3 max-w-3xl font-medium text-xs">
-                    <!-- Phone -->
-                    <a href="tel:+84989068343" class="bg-white/80 dark:bg-slate-900/60 hover:bg-doraemon-blue/10 border border-[#0091D8]/10 dark:border-white/5 hover:border-doraemon-blue/30 px-3.5 py-2.5 rounded-xl flex items-center space-x-2 transition-all duration-300 cursor-pointer shadow-sm">
-                        <svg class="w-4 h-4 text-doraemon-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                        </svg>
-                        <span class="text-slate-750 dark:text-slate-300">+84 989 068 343</span>
-                    </a>
-                    <!-- Email -->
-                    <a href="mailto:nth120923@gmail.com" class="bg-white/80 dark:bg-slate-900/60 hover:bg-doraemon-blue/10 border border-[#0091D8]/10 dark:border-white/5 hover:border-doraemon-blue/30 px-3.5 py-2.5 rounded-xl flex items-center space-x-2 transition-all duration-300 cursor-pointer shadow-sm">
-                        <svg class="w-4 h-4 text-doraemon-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                        </svg>
-                        <span class="text-slate-755 dark:text-slate-300">nth120923@gmail.com</span>
-                    </a>
-                    <!-- LinkedIn -->
-                    <a href="https://linkedin.com/in/hoangnt1209" target="_blank" rel="noopener noreferrer" class="bg-white/80 dark:bg-slate-900/60 hover:bg-doraemon-blue/10 border border-[#0091D8]/10 dark:border-white/5 hover:border-doraemon-blue/30 px-3.5 py-2.5 rounded-xl flex items-center space-x-2 transition-all duration-300 cursor-pointer shadow-sm">
-                        <svg class="w-4 h-4 text-doraemon-blue" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                        <span class="text-slate-755 dark:text-slate-300">hoangnt1209</span>
-                    </a>
-                    <!-- GitHub -->
-                    <a href="https://github.com/Hoangnt1209" target="_blank" rel="noopener noreferrer" class="bg-white/80 dark:bg-slate-900/60 hover:bg-doraemon-blue/10 border border-[#0091D8]/10 dark:border-white/5 hover:border-doraemon-blue/30 px-3.5 py-2.5 rounded-xl flex items-center space-x-2 transition-all duration-300 cursor-pointer shadow-sm">
-                        <svg class="w-4 h-4 text-doraemon-blue" fill="currentColor" viewBox="0 0 24 24">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482C19.138 20.197 22 16.44 22 12.017 22 6.484 17.522 2 12 2z"/>
-                        </svg>
-                        <span class="text-slate-755 dark:text-slate-300">Hoangnt1209</span>
-                    </a>
-                </div>
-
-                <!-- Action CTAs -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center pt-2">
-                    <a href="assets/Nguyen_Thanh_Hoang_CV.pdf" download="Nguyen_Thanh_Hoang_CV.pdf" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-doraemon-blue hover:bg-doraemon-blue/80 text-white font-heading font-semibold text-xs tracking-wider shadow-[0_6px_20px_rgba(0,145,216,0.2)] border border-doraemon-blue/30 transform hover:-translate-y-0.5 transition-all duration-300 cursor-pointer flex items-center justify-center space-x-2">
-                        <i data-lucide="download" class="w-4 h-4"></i>
-                        <span>DOWNLOAD CV (PDF)</span>
-                    </a>
-                    
-                    <a href="#projects" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/80 dark:bg-transparent hover:bg-slate-100 dark:hover:bg-slate-900/60 text-slate-700 dark:text-slate-300 font-heading font-semibold text-xs tracking-wider border border-[#0091D8]/15 dark:border-white/5 hover:border-doraemon-blue/40 transform hover:-translate-y-0.5 transition-all duration-300 cursor-pointer flex items-center justify-center space-x-2 shadow-sm">
-                        EXPLORE WORK
-                    </a>
-                </div>
-            </div>
-
-            <!-- Right column: Premium Dual-Mode Interactive Avatar Frame -->
-            <div class="w-full lg:w-2/5 flex justify-center">
-                <div id="avatar-interactive-frame" class="avatar-frame">
-                    <!-- Holographic Blueprint Propeller -->
-                    <div class="take-copter-icon">
-                        <svg class="w-11 h-11" viewBox="0 0 100 100" fill="none">
-                            <g class="bamboo-propeller">
-                                <path d="M10 50h80" stroke="#0091D8" stroke-width="4.5" stroke-linecap="round" />
-                                <ellipse cx="50" cy="50" rx="3.5" ry="7" fill="#FF4B4B" />
-                                <path d="M5 45c10-15 30-15 40 0" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round" />
-                                <path d="M95 45c-10-15-30-15-40 0" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round" />
-                            </g>
-                            <path d="M50 50v40" stroke="#0091D8" stroke-width="5" stroke-linecap="round" />
-                        </svg>
-                    </div>
-
-                    <!-- Real-Me Badge (synchronized with mini avatar) -->
-                    <div class="avatar-toggle-btn" style="cursor:default; pointer-events:none;">✨ AI ENGINEER</div>
-
-                    <!-- Main Picture Frame -->
-                    <div class="avatar-main-container">
-                        <img id="avatar-main" src="assets/avatar_real.png" alt="Nguyen Thanh Hoang" class="avatar-main-img shadow-lg">
-                    </div>
-
-                    <!-- Overlaid Frame -->
-                    <div class="avatar-mini-container">
-                        <img id="avatar-mini" src="assets/avatar_doraemon.png" alt="Alternate View" class="avatar-mini-img cursor-pointer">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2. ABOUT SECTION -->
-        <section id="about" class="py-20 reveal-on-scroll">
-            <!-- Unique Red Collar pipeline separator with gold bell sliding micro-interaction -->
-            <div class="section-header-group flex flex-col mb-12 select-none group cursor-default">
-                <div class="flex items-center justify-between mb-3">
-                    <div class="flex items-baseline space-x-3.5">
-                        <h2 class="font-heading text-2xl md:text-4xl font-black tracking-wide text-slate-800 dark:text-white uppercase transition-colors duration-300 group-hover:text-doraemon-blue">ABOUT ME</h2>
-                    </div>
-                </div>
-                <div class="cyber-collar-line w-full">
-                    <span class="cyber-collar-bell"></span>
-                </div>
-            </div>
-
-            <!-- Bento Grid Layout -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-                <!-- Left Bio Card -->
-                <div class="lg:col-span-8 clay-card p-6 md:p-10 flex flex-col justify-between relative overflow-hidden">
-                    <div class="space-y-5 relative z-10">
-                        <div class="flex items-center space-x-2 text-[10px] font-bold tracking-widest text-doraemon-blue dark:text-sky-400 uppercase">
-                            <span>BIOGRAPHY</span>
-                        </div>
-                        <p class="text-slate-800 dark:text-slate-200 text-base md:text-lg leading-relaxed font-medium">
-                            I am an Artificial Intelligence Engineer with 1 year of practical experience developing production-grade machine learning solutions, custom RAG pipelines, and Multi-Agent frameworks.
-                        </p>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                            Currently pursuing a Master of Science in Computer Science specializing in AI at FPT School of Business & Technology, I focus on building optimized workflows that turn advanced model layers into robust, real-world services.
-                        </p>
-                    </div>
-
-                    <div class="mt-8 pt-6 border-t border-slate-200 dark:border-white/5 flex flex-wrap gap-4 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
-                        <div class="flex items-center space-x-2">
-                            <span class="w-2 h-2 rounded-full bg-doraemon-blue"></span>
-                            <span>📍 Ho Chi Minh City, Vietnam</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <span class="w-2 h-2 rounded-full bg-doraemon-red"></span>
-                            <span>🎯 Core: LLMs, Vision, MLOps</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <span class="w-2 h-2 rounded-full bg-doraemon-gold"></span>
-                            <span>🎓 MS candidate (AI specialism)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Stats Grid -->
-                <div class="lg:col-span-4 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-6">
-                    <div class="clay-card p-6 flex flex-col justify-center items-center text-center group">
-                        <span class="text-3xl md:text-4xl font-heading font-bold text-doraemon-blue select-none mb-1" id="stat-years">1</span>
-                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">1 Year of AI Dev & Research</span>
-                        <div class="w-6 h-[1px] bg-doraemon-blue/20 mt-3 group-hover:bg-doraemon-blue/60 transition-colors duration-300"></div>
-                    </div>
-                    <div class="clay-card p-6 flex flex-col justify-center items-center text-center group">
-                        <span class="text-3xl md:text-4xl font-heading font-bold text-doraemon-red select-none mb-1" id="stat-projects">4</span>
-                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Successfully Shipped</span>
-                        <div class="w-6 h-[1px] bg-doraemon-red/20 mt-3 group-hover:bg-doraemon-red/60 transition-colors duration-300"></div>
-                    </div>
-                    <div class="clay-card p-6 flex flex-col justify-center items-center text-center group">
-                        <span class="text-3xl md:text-4xl font-heading font-bold text-doraemon-gold select-none mb-1" id="stat-certs">4+</span>
-                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Expert Certs & Publications</span>
-                        <div class="w-6 h-[1px] bg-doraemon-gold/20 mt-3 group-hover:bg-doraemon-gold/60 transition-colors duration-300"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. SKILLS SECTION -->
-        <section id="skills" class="py-20 reveal-on-scroll">
-            <!-- Unique Red Collar pipeline separator with gold bell sliding micro-interaction -->
-            <div class="section-header-group flex flex-col mb-12 select-none group cursor-default">
-                <div class="flex items-center justify-between mb-3">
-                    <div class="flex items-baseline space-x-3.5">
-                        <h2 class="font-heading text-2xl md:text-4xl font-black tracking-wide text-slate-800 dark:text-white uppercase transition-colors duration-300 group-hover:text-doraemon-blue">CORE SKILLS</h2>
-                    </div>
-                </div>
-                <div class="cyber-collar-line w-full">
-                    <span class="cyber-collar-bell"></span>
-                </div>
-            </div>
-
-            <!-- Skills Category Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Group 1: Language & Architecture -->
-                <div class="clay-card p-6 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-6">
-                            <h3 class="font-heading font-bold text-lg text-slate-800 dark:text-white">Languages & Infrastructure</h3>
-                            <div class="p-2.5 rounded-xl bg-doraemon-blue/10 border border-doraemon-blue/20 text-doraemon-blue">
-                                <i data-lucide="terminal" class="w-4.5 h-4.5"></i>
-                            </div>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">Python</span>
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">Docker</span>
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">Git Version Control</span>
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">Linux / Bash</span>
-                        </div>
-                    </div>
-                    <div class="mt-8 text-slate-400 dark:text-slate-500 text-[10px] font-bold tracking-wider uppercase">CORE LANGUAGES & RUNTIMES</div>
-                </div>
-
-                <!-- Group 2: Generative AI & Agents -->
-                <div class="clay-card p-6 flex flex-col justify-between md:col-span-2 lg:col-span-1">
-                    <div>
-                        <div class="flex items-center justify-between mb-6">
-                            <h3 class="font-heading font-bold text-lg text-slate-800 dark:text-white">AI Frameworks & Agents</h3>
-                            <div class="p-2.5 rounded-xl bg-doraemon-gold/10 border border-doraemon-gold/25 text-doraemon-gold">
-                                <i data-lucide="sparkles" class="w-4.5 h-4.5"></i>
-                            </div>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">LangChain</span>
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">LangGraph Agents</span>
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">OpenAI / Gemini APIs</span>
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">HuggingFace Spaces</span>
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">LLaMA Orchestration</span>
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">Advanced Prompting</span>
-                        </div>
-                    </div>
-                    <div class="mt-8 text-slate-400 dark:text-slate-500 text-[10px] font-bold tracking-wider uppercase">AGENTIC & LLM FRAMEWORKS</div>
-                </div>
-
-                <!-- Group 3: Vision & Deep Learning -->
-                <div class="clay-card p-6 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-6">
-                            <h3 class="font-heading font-bold text-lg text-slate-800 dark:text-white">Vision & Deep Learning</h3>
-                            <div class="p-2.5 rounded-xl bg-doraemon-red/10 border border-doraemon-red/20 text-doraemon-red">
-                                <i data-lucide="eye" class="w-4.5 h-4.5"></i>
-                            </div>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">PyTorch Deep Learning</span>
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">ONNX Optimization</span>
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">Triton Inference Server</span>
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">OpenCV Library</span>
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">YOLOv8 & YOLOv11</span>
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">MediaPipe Pipelines</span>
-                        </div>
-                    </div>
-                    <div class="mt-8 text-slate-400 dark:text-slate-500 text-[10px] font-bold tracking-wider uppercase">DEEP LEARNING & COMPUTER VISION</div>
-                </div>
-
-                <!-- Group 4: Data & Vector Indexes -->
-                <div class="clay-card p-6 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-6">
-                            <h3 class="font-heading font-bold text-lg text-slate-800 dark:text-white">Database & Vector Indexes</h3>
-                            <div class="p-2.5 rounded-xl bg-doraemon-blue/10 border border-doraemon-blue/20 text-doraemon-blue">
-                                <i data-lucide="database" class="w-4.5 h-4.5"></i>
-                            </div>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">PostgreSQL</span>
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">Qdrant Vector DB</span>
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">FAISS Indexes</span>
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">Pinecone Cloud</span>
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">Supabase Ecosystem</span>
-                        </div>
-                    </div>
-                    <div class="mt-8 text-slate-400 dark:text-slate-500 text-[10px] font-bold tracking-wider uppercase">VECTOR SEARCH & RETRIEVAL</div>
-                </div>
-
-                <!-- Group 5: Backend & MLOps -->
-                <div class="clay-card p-6 flex flex-col justify-between md:col-span-2 lg:col-span-1">
-                    <div>
-                        <div class="flex items-center justify-between mb-6">
-                            <h3 class="font-heading font-bold text-lg text-slate-800 dark:text-white">API Services & MLOps</h3>
-                            <div class="p-2.5 rounded-xl bg-doraemon-red/10 border border-doraemon-red/20 text-doraemon-red">
-                                <i data-lucide="server" class="w-4.5 h-4.5"></i>
-                            </div>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">FastAPI Services</span>
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">Pydantic Validation</span>
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">REST APIs</span>
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">MLflow Tracking</span>
-                            <span class="text-[10px] bg-white dark:bg-slate-900/60 text-doraemon-blue dark:text-sky-400 font-bold border border-doraemon-blue/20 px-3 py-1.5 rounded-xl">lakeFS Data Versioning</span>
-                        </div>
-                    </div>
-                    <div class="mt-8 text-slate-400 dark:text-slate-500 text-[10px] font-bold tracking-wider uppercase">DEPLOYMENT & MLOPS</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. WORK EXPERIENCE SECTION -->
-        <section id="experience" class="py-20 reveal-on-scroll">
-            <!-- Unique Red Collar pipeline separator with gold bell sliding micro-interaction -->
-            <div class="section-header-group flex flex-col mb-12 select-none group cursor-default">
-                <div class="flex items-center justify-between mb-3">
-                    <div class="flex items-baseline space-x-3.5">
-                        <h2 class="font-heading text-2xl md:text-4xl font-black tracking-wide text-slate-800 dark:text-white uppercase transition-colors duration-300 group-hover:text-doraemon-blue">WORK EXPERIENCE</h2>
-                    </div>
-                </div>
-                <div class="cyber-collar-line w-full">
-                    <span class="cyber-collar-bell"></span>
-                </div>
-            </div>
-
-            <!-- Timeline -->
-            <div class="relative border-l border-doraemon-blue/20 dark:border-doraemon-blue/10 ml-4 md:ml-8 pl-8 md:pl-12 space-y-12">
-                
-                <!-- Job 1 -->
-                <div class="relative group">
-                    <span class="absolute -left-[37px] md:-left-[53px] top-1.5 w-5 h-5 rounded-full bg-white dark:bg-slate-950 border border-doraemon-blue flex items-center justify-center shadow-md group-hover:border-doraemon-gold transition-all duration-300">
-                        <span class="w-2 h-2 rounded-full bg-doraemon-blue group-hover:bg-doraemon-gold animate-pulse"></span>
-                    </span>
-
-                    <div class="clay-card p-6 md:p-8">
-                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                            <div>
-                                <span class="text-xs text-doraemon-blue dark:text-sky-400 font-bold tracking-wider uppercase">Jan 2026 – Present</span>
-                                <h3 class="font-heading text-lg font-bold text-slate-800 dark:text-white mt-0.5">AI Engineer</h3>
-                                <p class="text-xs font-semibold text-slate-500 dark:text-slate-300">Future Space Technology Corp</p>
-                            </div>
-                            <span class="self-start md:self-auto px-3.5 py-1 rounded-xl bg-doraemon-blue/10 dark:bg-doraemon-blue/15 border border-doraemon-blue/20 text-doraemon-blue dark:text-sky-400 font-semibold text-[10px]">FULL-TIME</span>
-                        </div>
-                        <ul class="space-y-2 text-slate-600 dark:text-slate-300 text-xs md:text-sm list-inside list-disc">
-                            <li>Developing cooperative <strong class="text-slate-855 dark:text-white font-semibold">Multi-Agent</strong> orchestrations and frameworks utilizing state-based control graphs in <strong class="text-slate-855 dark:text-white font-semibold">LangGraph</strong>.</li>
-                            <li>Engineered agent dynamic self-correcting mechanisms utilizing structural prompt models and route logic.</li>
-                            <li>Integrating localized large language models into highly concurrent server backends using <strong class="text-slate-855 dark:text-white font-semibold">FastAPI & Pydantic</strong> validation.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Job 2 -->
-                <div class="relative group">
-                    <span class="absolute -left-[37px] md:-left-[53px] top-1.5 w-5 h-5 rounded-full bg-white dark:bg-slate-950 border border-doraemon-blue flex items-center justify-center shadow-md group-hover:border-doraemon-gold transition-all duration-300">
-                        <span class="w-2 h-2 rounded-full bg-doraemon-blue group-hover:bg-doraemon-gold animate-pulse"></span>
-                    </span>
-
-                    <div class="clay-card p-6 md:p-8">
-                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                            <div>
-                                <span class="text-xs text-doraemon-blue dark:text-sky-400 font-bold tracking-wider uppercase">Jan 2026 – Apr 2026</span>
-                                <h3 class="font-heading text-lg font-bold text-slate-800 dark:text-white mt-0.5">Independent AI Engineer</h3>
-                                <p class="text-xs font-semibold text-slate-500 dark:text-slate-300">EdTech AI Training Systems</p>
-                            </div>
-                            <span class="self-start md:self-auto px-3.5 py-1 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400 font-semibold text-[10px]">CONTRACT</span>
-                        </div>
-                        <ul class="space-y-2 text-slate-600 dark:text-slate-300 text-xs md:text-sm list-inside list-disc">
-                            <li>Implemented production-ready RAG pipelines utilizing embeddings and highly performant vector index algorithms in <strong class="text-slate-855 dark:text-white font-semibold">FAISS & Pinecone</strong>.</li>
-                            <li>Audited semantic document parsing boundaries and embedding dimension representations to optimize context window similarity lookup ratios.</li>
-                            <li>Engineered OCR pipeline processors and unstructured text extraction strategies for deep model input preparation.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Job 3 -->
-                <div class="relative group">
-                    <span class="absolute -left-[37px] md:-left-[53px] top-1.5 w-5 h-5 rounded-full bg-white dark:bg-slate-950 border border-doraemon-blue flex items-center justify-center shadow-md group-hover:border-doraemon-gold transition-all duration-300">
-                        <span class="w-2 h-2 rounded-full bg-doraemon-blue group-hover:bg-doraemon-gold animate-pulse"></span>
-                    </span>
-
-                    <div class="clay-card p-6 md:p-8">
-                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                            <div>
-                                <span class="text-xs text-doraemon-blue dark:text-sky-400 font-bold tracking-wider uppercase">Sep 2025 – Nov 2025</span>
-                                <h3 class="font-heading text-lg font-bold text-slate-800 dark:text-white mt-0.5">AI Research Intern</h3>
-                                <p class="text-xs font-semibold text-slate-500 dark:text-slate-300">FPT Software Ho Chi Minh</p>
-                            </div>
-                            <span class="self-start md:self-auto px-3.5 py-1 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400 font-semibold text-[10px]">INTERNSHIP</span>
-                        </div>
-                        <ul class="space-y-2 text-slate-600 dark:text-slate-300 text-xs md:text-sm list-inside list-disc">
-                            <li>Engineered automation scripts integrating <strong class="text-slate-855 dark:text-white font-semibold">OpenAI and Gemini API</strong> models to facilitate clean database record migrations.</li>
-                            <li>Tuned prompt strategies, structured JSON schema response limits, and chain-of-thought layers to guarantee response formatting reliability.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Job 4 -->
-                <div class="relative group">
-                    <span class="absolute -left-[37px] md:-left-[53px] top-1.5 w-5 h-5 rounded-full bg-white dark:bg-slate-950 border border-doraemon-blue flex items-center justify-center shadow-md group-hover:border-doraemon-gold transition-all duration-300">
-                        <span class="w-2 h-2 rounded-full bg-doraemon-blue group-hover:bg-doraemon-gold animate-pulse"></span>
-                    </span>
-
-                    <div class="clay-card p-6 md:p-8">
-                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                            <div>
-                                <span class="text-xs text-doraemon-blue dark:text-sky-400 font-bold tracking-wider uppercase">Jan 2024 – Apr 2024</span>
-                                <h3 class="font-heading text-lg font-bold text-slate-800 dark:text-white mt-0.5">Full-Stack AI Developer Intern</h3>
-                                <p class="text-xs font-semibold text-slate-500 dark:text-slate-300">FPT Software Academy</p>
-                            </div>
-                            <span class="self-start md:self-auto px-3.5 py-1 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400 font-semibold text-[10px]">INTERNSHIP</span>
-                        </div>
-                        <ul class="space-y-2 text-slate-600 dark:text-slate-300 text-xs md:text-sm list-inside list-disc">
-                            <li>Supported development of an intelligent applicant screening profile utilizing <strong class="text-slate-855 dark:text-white font-semibold">LangChain & Qdrant</strong> indexes.</li>
-                            <li>Programmed secure REST interfaces in <strong class="text-slate-855 dark:text-white font-semibold">FastAPI</strong> and customized responsive portal components in <strong class="text-slate-855 dark:text-white font-semibold">ReactJS</strong>.</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- 5. EDUCATION SECTION (Moved up before Projects) -->
-        <section id="education" class="py-20 reveal-on-scroll">
-            <!-- Unique Red Collar pipeline separator with gold bell sliding micro-interaction -->
-            <div class="section-header-group flex flex-col mb-12 select-none group cursor-default">
-                <div class="flex items-center justify-between mb-3">
-                    <div class="flex items-baseline space-x-3.5">
-                        <h2 class="font-heading text-2xl md:text-4xl font-black tracking-wide text-slate-800 dark:text-white uppercase transition-colors duration-300 group-hover:text-doraemon-blue">EDUCATION</h2>
-                    </div>
-                </div>
-                <div class="cyber-collar-line w-full">
-                    <span class="cyber-collar-bell"></span>
-                </div>
-            </div>
-
-            <!-- Two academic cards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Academic 1 -->
-                <div class="clay-card p-6 md:p-8 flex flex-col justify-between relative overflow-hidden">
-                    <div class="absolute -bottom-8 -right-8 text-slate-800/10 pointer-events-none select-none">
-                        <svg class="w-36 h-36" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
-                        </svg>
-                    </div>
-
-                    <div>
-                        <div class="flex justify-between items-start gap-4 mb-6">
-                            <div class="p-2.5 rounded-xl bg-doraemon-blue/10 border border-doraemon-blue/20 text-doraemon-blue shadow-inner">
-                                <i data-lucide="award" class="w-5.5 h-5.5"></i>
-                            </div>
-                            <span class="bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 px-3 py-1 rounded-xl text-slate-500 dark:text-slate-400 font-bold text-[9px]">2025 - PRESENT</span>
-                        </div>
-                        <h3 class="font-heading text-lg font-bold text-slate-800 dark:text-white mb-2 leading-snug">Master of Software Engineering (AI)</h3>
-                        <p class="text-sm font-semibold text-slate-500 dark:text-slate-300 mb-4">FPT School of Business & Technology (FSB)</p>
-                        <p class="text-slate-600 dark:text-slate-400 text-xs md:text-sm leading-relaxed">
-                            Focusing on intelligent architectures, Multi-Agent control flow logic, vector indexes, and enterprise model operations infrastructure.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Academic 2 -->
-                <div class="clay-card p-6 md:p-8 flex flex-col justify-between relative overflow-hidden">
-                    <div class="absolute -bottom-8 -right-8 text-slate-800/10 pointer-events-none select-none">
-                        <svg class="w-36 h-36" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
-                        </svg>
-                    </div>
-
-                    <div>
-                        <div class="flex justify-between items-start gap-4 mb-6">
-                            <div class="p-2.5 rounded-xl bg-doraemon-blue/10 border border-doraemon-blue/20 text-doraemon-blue shadow-inner">
-                                <i data-lucide="award" class="w-5.5 h-5.5"></i>
-                            </div>
-                            <span class="bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 px-3 py-1 rounded-xl text-slate-500 dark:text-slate-400 font-bold text-[9px]">2021 - 2025</span>
-                        </div>
-                        <h3 class="font-heading text-lg font-bold text-slate-800 dark:text-white mb-2 leading-snug">Bachelor of Artificial Intelligence</h3>
-                        <p class="text-sm font-semibold text-slate-500 dark:text-slate-300 mb-2">FPT University</p>
-                        <span class="inline-block px-2.5 py-0.5 rounded bg-doraemon-gold/15 border border-doraemon-gold/30 text-doraemon-gold dark:text-yellow-400 font-bold text-[9px] mb-4">GRADUATE GPA: 3.4 / 4.0</span>
-                        <p class="text-slate-600 dark:text-slate-400 text-xs md:text-sm leading-relaxed">
-                            Completed deep academic projects on Neural Architectures, Natural Language Processing, Multivariable Calculus optimization, and Machine Learning algorithms.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. PROJECTS SECTION -->
-        <section id="projects" class="py-20 reveal-on-scroll">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6 gap-4">
-                <!-- Unique Red Collar pipeline separator with gold bell sliding micro-interaction -->
-                <div class="section-header-group flex flex-col flex-grow select-none group cursor-default">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="flex items-baseline space-x-3.5">
-                            <h2 class="font-heading text-2xl md:text-4xl font-black tracking-wide text-slate-800 dark:text-white uppercase transition-colors duration-300 group-hover:text-doraemon-blue">FEATURED PROJECTS</h2>
-                        </div>
-                    </div>
-                    <div class="cyber-collar-line w-full">
-                        <span class="cyber-collar-bell"></span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Filter Tabs (Modern Glassmorphic Pill Switch) -->
-            <div class="flex items-center justify-start mb-10 overflow-x-auto no-scrollbar pb-1">
-                <div class="inline-flex p-1.5 rounded-2xl bg-slate-900/80 dark:bg-slate-950/80 border border-slate-200 dark:border-white/10 backdrop-blur-xl shadow-xl gap-1">
-                    <button onclick="filterProjects('all')" id="filter-btn-all" class="px-4 py-2 rounded-xl bg-gradient-to-r from-doraemon-blue to-sky-600 text-white font-bold text-xs tracking-wider shadow-[0_4px_15px_rgba(0,145,216,0.35)] border border-sky-400/40 cursor-pointer transition-all duration-300 flex items-center gap-1.5">
-                        <span>⚡ ALL PROJECTS</span>
-                        <span class="px-1.5 py-0.5 rounded-full bg-white/20 text-[10px]">5</span>
-                    </button>
-                    <button onclick="filterProjects('nlp')" id="filter-btn-nlp" class="px-4 py-2 rounded-xl bg-transparent hover:bg-white/5 text-slate-400 hover:text-white border border-transparent hover:border-white/10 cursor-pointer transition-all duration-300 text-xs font-semibold tracking-wider flex items-center gap-1.5">
-                        <span>🧠 GEN AI & AGENTS</span>
-                        <span class="px-1.5 py-0.5 rounded-full bg-white/10 text-[10px]">3</span>
-                    </button>
-                    <button onclick="filterProjects('cv')" id="filter-btn-cv" class="px-4 py-2 rounded-xl bg-transparent hover:bg-white/5 text-slate-400 hover:text-white border border-transparent hover:border-white/10 cursor-pointer transition-all duration-300 text-xs font-semibold tracking-wider flex items-center gap-1.5">
-                        <span>🥐 COMPUTER VISION</span>
-                        <span class="px-1.5 py-0.5 rounded-full bg-white/10 text-[10px]">1</span>
-                    </button>
-                    <button onclick="filterProjects('mlops')" id="filter-btn-mlops" class="px-4 py-2 rounded-xl bg-transparent hover:bg-white/5 text-slate-400 hover:text-white border border-transparent hover:border-white/10 cursor-pointer transition-all duration-300 text-xs font-semibold tracking-wider flex items-center gap-1.5">
-                        <span>🚀 MLOPS & SYSTEMS</span>
-                        <span class="px-1.5 py-0.5 rounded-full bg-white/10 text-[10px]">1</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Bento Projects Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="projects-grid">
-                
-                <!-- Project 5 (VietStock AI - Flagship) -->
-                <div id="project-vietstock" class="project-card clay-card p-6 md:p-8 flex flex-col justify-between pocket-lift hover:shadow-[0_25px_55px_rgba(16,185,129,0.22)] duration-300 md:col-span-2 relative overflow-hidden group border border-emerald-500/30 transition-all rounded-3xl" data-category="nlp">
-                    <!-- Top subtle glowing ribbon -->
-                    <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-400 via-doraemon-blue to-teal-400"></div>
-                    
-                    <div class="flex flex-col lg:flex-row gap-8 items-stretch">
-                        <!-- Left: Browser Mock Window Frame -->
-                        <div class="lg:w-1/2 flex flex-col justify-between space-y-3">
-                            <div class="rounded-2xl overflow-hidden border border-white/15 bg-slate-950 shadow-2xl relative group/img flex flex-col h-full">
-                                <!-- macOS Window Titlebar -->
-                                <div class="px-4 py-2.5 bg-slate-900/90 border-b border-white/10 flex items-center justify-between select-none">
-                                    <div class="flex items-center space-x-1.5">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
-                                        <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
-                                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
-                                    </div>
-                                    <div class="px-3 py-1 rounded-md bg-slate-950/80 border border-white/10 text-[10px] font-mono text-slate-400 flex items-center space-x-1.5">
-                                        <i data-lucide="lock" class="w-2.5 h-2.5 text-emerald-400"></i>
-                                        <span>vietstockassistant.netlify.app</span>
-                                    </div>
-                                    <div class="flex items-center space-x-1.5 text-[9px] font-bold text-emerald-400">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                                        <span>ONLINE</span>
-                                    </div>
-                                </div>
-                                <!-- Visual Display Container -->
-                                <div class="relative flex-1 bg-slate-950 overflow-hidden flex items-center justify-center min-h-[240px]">
-                                    <img src="assets/project_vietstock.png" alt="VietStock AI Dashboard" class="w-full h-full max-h-[310px] object-cover object-top transform group-hover/img:scale-[1.03] transition-transform duration-500">
-                                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
-                                </div>
-                            </div>
-                            <!-- 3 Micro-Metrics Badges -->
-                            <div class="grid grid-cols-3 gap-2 text-center select-none pt-1">
-                                <div class="px-2 py-1.5 rounded-xl bg-slate-900/60 border border-emerald-500/20 text-slate-300">
-                                    <div class="text-[9px] text-slate-400 font-bold uppercase">Indicator Engine</div>
-                                    <div class="text-[11px] font-mono font-bold text-emerald-400">Deterministic</div>
-                                </div>
-                                <div class="px-2 py-1.5 rounded-xl bg-slate-900/60 border border-emerald-500/20 text-slate-300">
-                                    <div class="text-[9px] text-slate-400 font-bold uppercase">Streaming</div>
-                                    <div class="text-[11px] font-mono font-bold text-sky-400">Real-Time SSE</div>
-                                </div>
-                                <div class="px-2 py-1.5 rounded-xl bg-slate-900/60 border border-emerald-500/20 text-slate-300">
-                                    <div class="text-[9px] text-slate-400 font-bold uppercase">Exchange</div>
-                                    <div class="text-[11px] font-mono font-bold text-amber-400">HOSE • HNX • UPCOM</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Right: Details & Architecture -->
-                        <div class="lg:w-1/2 flex flex-col justify-between space-y-5">
-                            <div>
-                                <div class="flex items-start justify-between gap-3 mb-2">
-                                    <div>
-                                        <div class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/30 mb-2">
-                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-                                            <span>AUTONOMOUS FINTECH AGENT</span>
-                                            <span>•</span>
-                                            <span>VIETNAM STOCK MARKET</span>
-                                        </div>
-                                        <h3 class="font-heading text-xl md:text-2xl font-bold text-slate-800 dark:text-white leading-tight">VietStock AI — Autonomous Stock Market Intelligence & Advisory Platform</h3>
-                                    </div>
-                                    <div class="flex items-center space-x-2 text-slate-400 dark:text-slate-500 mt-1 flex-shrink-0">
-                                        <a href="https://vietstockassistant.netlify.app/" target="_blank" rel="noopener noreferrer" class="p-2 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 transition-all duration-200" title="Open Live Production App">
-                                            <i data-lucide="external-link" class="w-4 h-4"></i>
-                                        </a>
-                                        <a href="https://github.com/Hoangnt1209/VietStock-Ai-Assistant" target="_blank" rel="noopener noreferrer" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-white/10 transition-all duration-200" title="Source Code">
-                                            <i data-lucide="github" class="w-4 h-4"></i>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed">
-                                    Autonomous AI financial assistant designed for real-time technical analysis and stock screening across Vietnam equities. Couples deterministic mathematical indicator calculations with LLM function calling to deliver verifiable, quantitative financial insights.
-                                </p>
-
-                                <div class="space-y-2 mb-5 text-xs text-slate-300">
-                                    <div class="flex items-start gap-2">
-                                        <span class="text-emerald-400 font-bold">✔</span>
-                                        <span><strong>Deterministic Indicator Engine:</strong> Mathematical computation (RSI Wilder's, MACD, Bollinger Bands) in Pandas & NumPy completely isolated from LLM wording.</span>
-                                    </div>
-                                    <div class="flex items-start gap-2">
-                                        <span class="text-emerald-400 font-bold">✔</span>
-                                        <span><strong>Live Visual Payloads:</strong> Streams interactive Recharts candlestick charts and rating badges via Server-Sent Events (SSE) before token stream.</span>
-                                    </div>
-                                    <div class="flex items-start gap-2">
-                                        <span class="text-emerald-400 font-bold">✔</span>
-                                        <span><strong>Performance Caching:</strong> Multi-tier in-memory TTL caching with async background warm-up for sub-second responses.</span>
-                                    </div>
-                                </div>
-
-                                <div class="flex flex-wrap gap-1.5 mb-2">
-                                    <span class="text-[10px] bg-emerald-500/15 border border-emerald-500/30 px-2.5 py-1 rounded-lg text-emerald-300 font-semibold">FastAPI (Python 3.11+)</span>
-                                    <span class="text-[10px] bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 px-2.5 py-1 rounded-lg text-slate-600 dark:text-slate-300 font-semibold">Next.js 16 (React 19)</span>
-                                    <span class="text-[10px] bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 px-2.5 py-1 rounded-lg text-slate-600 dark:text-slate-300 font-semibold">Google Gemini API</span>
-                                    <span class="text-[10px] bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 px-2.5 py-1 rounded-lg text-slate-600 dark:text-slate-300 font-semibold">vnstock / vnai SDK</span>
-                                    <span class="text-[10px] bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 px-2.5 py-1 rounded-lg text-slate-600 dark:text-slate-300 font-semibold">Pandas & NumPy</span>
-                                    <span class="text-[10px] bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 px-2.5 py-1 rounded-lg text-slate-600 dark:text-slate-300 font-semibold">Recharts Candlestick</span>
-                                </div>
-                            </div>
-
-                            <div class="flex flex-wrap sm:flex-nowrap gap-3 pt-2">
-                                <a href="https://vietstockassistant.netlify.app/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-heading text-xs font-bold tracking-wider flex items-center justify-center space-x-2 transition-all shadow-[0_4px_18px_rgba(16,185,129,0.4)] cursor-pointer">
-                                    <i data-lucide="play-circle" class="w-4 h-4"></i>
-                                    <span>LAUNCH LIVE DEMO ↗</span>
-                                </a>
-                                <button onclick="openProjectModal(5)" class="flex-1 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500/20 to-doraemon-blue/20 hover:from-emerald-500/30 hover:to-doraemon-blue/30 border border-emerald-500/40 font-heading text-xs text-emerald-300 font-bold tracking-widest cursor-pointer flex items-center justify-center space-x-2 transition-all duration-300 uppercase shadow-lg">
-                                    <span>ANALYZE ARCHITECTURE & SPECS →</span>
-                                </button>
-                                <a href="https://github.com/Hoangnt1209/VietStock-Ai-Assistant" target="_blank" rel="noopener noreferrer" class="px-4 py-3.5 rounded-xl border border-white/10 hover:border-white/30 text-slate-300 font-heading text-xs font-bold flex items-center justify-center space-x-1.5 transition-all">
-                                    <i data-lucide="github" class="w-4 h-4"></i>
-                                    <span>CODE</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 1 (Intelligent Multi-Source RAG Assistant) -->
-                <div class="project-card clay-card p-6 flex flex-col justify-between pocket-lift hover:shadow-[0_20px_45px_rgba(0,145,216,0.18)] duration-300 border border-blue-500/25 rounded-3xl" data-category="nlp">
-                    <div class="space-y-4">
-                        <!-- macOS Window Frame -->
-                        <div class="rounded-2xl overflow-hidden border border-white/10 bg-slate-950 shadow-xl relative group/img">
-                            <div class="px-3.5 py-2 bg-slate-900/90 border-b border-white/10 flex items-center justify-between select-none">
-                                <div class="flex items-center space-x-1.5">
-                                    <span class="w-2 h-2 rounded-full bg-rose-500/80"></span>
-                                    <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
-                                    <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
-                                </div>
-                                <div class="px-2.5 py-0.5 rounded-md bg-slate-950/80 border border-white/10 text-[9px] font-mono text-slate-400 flex items-center space-x-1">
-                                    <i data-lucide="lock" class="w-2 h-2 text-sky-400"></i>
-                                    <span>rag.hoang.ai</span>
-                                </div>
-                                <span class="px-2 py-0.5 rounded-full bg-blue-500/15 border border-blue-500/30 text-[9px] font-bold text-sky-400 uppercase">
-                                    ENTERPRISE QA
-                                </span>
-                            </div>
-                            <!-- Visual Display -->
-                            <div class="h-48 overflow-hidden relative flex items-center justify-center bg-slate-950">
-                                <img src="assets/project_rag.png" alt="LexWeave Intelligent Multi-Source RAG Assistant" class="w-full h-full object-cover transform group-hover/img:scale-105 transition-transform duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-                            </div>
-                        </div>
-
-                        <!-- Header & Meta -->
-                        <div>
-                            <div class="flex items-start justify-between gap-2 mb-1.5">
-                                <h3 class="font-heading text-lg font-bold text-slate-800 dark:text-white leading-tight">Intelligent Multi-Source RAG Assistant</h3>
-                                <div class="flex items-center space-x-1.5 text-slate-400 flex-shrink-0">
-                                    <a href="https://github.com/Hoangnt1209" target="_blank" class="p-1 rounded-lg hover:text-white hover:bg-white/10 transition-colors" title="Source Code">
-                                        <i data-lucide="github" class="w-4 h-4"></i>
-                                    </a>
-                                    <button onclick="openProjectModal(1)" class="p-1 rounded-lg hover:text-sky-400 hover:bg-sky-500/10 transition-colors" title="Inspect Specs">
-                                        <i data-lucide="external-link" class="w-4 h-4"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed line-clamp-2">
-                                Enterprise-grade QA engine operating over unstructured PDF and spreadsheet documents with semantic reranking and hot LLM swapping.
-                            </p>
-                        </div>
-
-                        <!-- 3 Micro-Metrics -->
-                        <div class="grid grid-cols-3 gap-1.5 text-center select-none">
-                            <div class="px-1.5 py-1 rounded-lg bg-slate-900/60 border border-blue-500/20">
-                                <div class="text-[8px] text-slate-400 font-bold uppercase">Precision</div>
-                                <div class="text-[10px] font-mono font-bold text-sky-400">Grounded Context</div>
-                            </div>
-                            <div class="px-1.5 py-1 rounded-lg bg-slate-900/60 border border-blue-500/20">
-                                <div class="text-[8px] text-slate-400 font-bold uppercase">Retrieval</div>
-                                <div class="text-[10px] font-mono font-bold text-emerald-400">FAISS Index</div>
-                            </div>
-                            <div class="px-1.5 py-1 rounded-lg bg-slate-900/60 border border-blue-500/20">
-                                <div class="text-[8px] text-slate-400 font-bold uppercase">Chunking</div>
-                                <div class="text-[10px] font-mono font-bold text-indigo-400">Semantic Rerank</div>
-                            </div>
-                        </div>
-
-                        <!-- Tech Stack Tags -->
-                        <div class="flex flex-wrap gap-1.5 pt-1">
-                            <span class="text-[10px] bg-blue-500/10 border border-blue-500/30 px-2 py-0.5 rounded-md text-sky-400 font-semibold">LangChain</span>
-                            <span class="text-[10px] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-md text-slate-300 font-semibold">FAISS Vector DB</span>
-                            <span class="text-[10px] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-md text-slate-300 font-semibold">HuggingFace</span>
-                            <span class="text-[10px] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-md text-slate-300 font-semibold">LLaMA API</span>
-                        </div>
-                    </div>
-                    
-                    <button onclick="openProjectModal(1)" class="w-full mt-5 py-3 rounded-xl border border-blue-500/30 hover:border-blue-400 hover:bg-blue-500/15 font-heading text-[10px] text-sky-300 font-bold tracking-widest cursor-pointer flex items-center justify-center space-x-2 transition-all duration-300 uppercase shadow-sm">
-                        <span>ANALYZE ARCHITECTURE & SPECS →</span>
-                    </button>
-                </div>
-
-                <!-- Project 2 (Automated Bakery Self-Checkout & Pastry Detection) -->
-                <div class="project-card clay-card p-6 flex flex-col justify-between pocket-lift hover:shadow-[0_20px_45px_rgba(244,63,94,0.2)] duration-300 border border-rose-500/25 rounded-3xl" data-category="cv">
-                    <div class="space-y-4">
-                        <!-- macOS Window Frame -->
-                        <div class="rounded-2xl overflow-hidden border border-white/10 bg-slate-950 shadow-xl relative group/img">
-                            <div class="px-3.5 py-2 bg-slate-900/90 border-b border-white/10 flex items-center justify-between select-none">
-                                <div class="flex items-center space-x-1.5">
-                                    <span class="w-2 h-2 rounded-full bg-rose-500/80"></span>
-                                    <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
-                                    <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
-                                </div>
-                                <div class="px-2.5 py-0.5 rounded-md bg-slate-950/80 border border-white/10 text-[9px] font-mono text-slate-400 flex items-center space-x-1">
-                                    <i data-lucide="lock" class="w-2 h-2 text-rose-400"></i>
-                                    <span>checkout.hoang.ai</span>
-                                </div>
-                                <span class="px-2 py-0.5 rounded-full bg-rose-500/15 border border-rose-500/30 text-[9px] font-bold text-rose-400 uppercase">
-                                    EDGE AI CHECKOUT
-                                </span>
-                            </div>
-                            <!-- Visual Display -->
-                            <div class="h-48 overflow-hidden relative flex items-center justify-center bg-slate-950">
-                                <img src="assets/project_pastry_detection.png" alt="Automated Bakery Self-Checkout" class="w-full h-full object-cover object-center transform group-hover/img:scale-105 transition-transform duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-                            </div>
-                        </div>
-
-                        <!-- Header & Meta -->
-                        <div>
-                            <div class="flex items-start justify-between gap-2 mb-1.5">
-                                <h3 class="font-heading text-lg font-bold text-slate-800 dark:text-white leading-tight">Automated Bakery Self-Checkout & Pastry Detection System</h3>
-                                <div class="flex items-center space-x-1.5 text-slate-400 flex-shrink-0">
-                                    <a href="https://github.com/Hoangnt1209" target="_blank" class="p-1 rounded-lg hover:text-white hover:bg-white/10 transition-colors" title="Source Code">
-                                        <i data-lucide="github" class="w-4 h-4"></i>
-                                    </a>
-                                    <button onclick="openProjectModal(2)" class="p-1 rounded-lg hover:text-rose-400 hover:bg-rose-500/10 transition-colors" title="Inspect Specs & Gallery">
-                                        <i data-lucide="external-link" class="w-4 h-4"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed line-clamp-2">
-                                Edge computer vision self-checkout system detecting multi-class pastry items on customer trays and calculating checkout totals in real time.
-                            </p>
-                        </div>
-
-                        <!-- 3 Micro-Metrics -->
-                        <div class="grid grid-cols-3 gap-1.5 text-center select-none">
-                            <div class="px-1.5 py-1 rounded-lg bg-slate-900/60 border border-rose-500/20">
-                                <div class="text-[8px] text-slate-400 font-bold uppercase">Dataset</div>
-                                <div class="text-[10px] font-mono font-bold text-rose-400">70K AutoCrawler</div>
-                            </div>
-                            <div class="px-1.5 py-1 rounded-lg bg-slate-900/60 border border-rose-500/20">
-                                <div class="text-[8px] text-slate-400 font-bold uppercase">Annotation</div>
-                                <div class="text-[10px] font-mono font-bold text-amber-400">LabelImg Hand</div>
-                            </div>
-                            <div class="px-1.5 py-1 rounded-lg bg-slate-900/60 border border-rose-500/20">
-                                <div class="text-[8px] text-slate-400 font-bold uppercase">Accuracy</div>
-                                <div class="text-[10px] font-mono font-bold text-emerald-400">70%–80% YOLO</div>
-                            </div>
-                        </div>
-
-                        <!-- Tech Stack Tags -->
-                        <div class="flex flex-wrap gap-1.5 pt-1">
-                            <span class="text-[10px] bg-rose-500/10 border border-rose-500/30 px-2 py-0.5 rounded-md text-rose-400 font-semibold">YOLOv6 / YOLOv8</span>
-                            <span class="text-[10px] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-md text-slate-300 font-semibold">AutoCrawler (70K)</span>
-                            <span class="text-[10px] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-md text-slate-300 font-semibold">LabelImg Hand-Labeled</span>
-                            <span class="text-[10px] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-md text-slate-300 font-semibold">ONNX / Triton Server</span>
-                        </div>
-                    </div>
-                    
-                    <button onclick="openProjectModal(2)" class="w-full mt-5 py-3 rounded-xl border border-rose-500/30 hover:border-rose-400 hover:bg-rose-500/15 font-heading text-[10px] text-rose-300 font-bold tracking-widest cursor-pointer flex items-center justify-center space-x-2 transition-all duration-300 uppercase shadow-sm">
-                        <span>ANALYZE ARCHITECTURE & GALLERY →</span>
-                    </button>
-                </div>
-
-                <!-- Project 3 (Floren AI — Remote Contract Production Platform) -->
-                <div id="project-floren" class="project-card clay-card p-6 flex flex-col justify-between pocket-lift hover:shadow-[0_20px_45px_rgba(244,63,94,0.2)] duration-300 border border-rose-500/30 rounded-3xl" data-category="nlp">
-                    <div class="space-y-4">
-                        <!-- macOS Window Frame -->
-                        <div class="rounded-2xl overflow-hidden border border-white/10 bg-slate-950 shadow-xl relative group/img">
-                            <div class="px-3.5 py-2 bg-slate-900/90 border-b border-white/10 flex items-center justify-between select-none">
-                                <div class="flex items-center space-x-1.5">
-                                    <span class="w-2 h-2 rounded-full bg-rose-500/80"></span>
-                                    <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
-                                    <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
-                                </div>
-                                <div class="px-2.5 py-0.5 rounded-md bg-slate-950/80 border border-white/10 text-[9px] font-mono text-slate-400 flex items-center space-x-1">
-                                    <i data-lucide="lock" class="w-2 h-2 text-rose-400"></i>
-                                    <span>floren.studio</span>
-                                </div>
-                                <span class="px-2 py-0.5 rounded-full bg-rose-500/15 border border-rose-500/30 text-[9px] font-bold text-rose-300 uppercase">
-                                    REMOTE CONTRACT
-                                </span>
-                            </div>
-                            <!-- Architecture Diagram Preview -->
-                            <div class="h-48 overflow-hidden relative flex items-center justify-center bg-white p-1.5 cursor-pointer" onclick="openProjectModal(3)">
-                                <img src="assets/floren_architecture.jpg" alt="Floren AI System Architecture" class="w-full h-full object-contain transform group-hover/img:scale-105 transition-transform duration-500">
-                                <span class="absolute bottom-2 right-2 px-2 py-0.5 rounded-md bg-slate-900/85 text-[9px] font-bold text-white backdrop-blur">5 Screens + Architecture</span>
-                            </div>
-                        </div>
-
-                        <!-- Header & Meta -->
-                        <div>
-                            <div class="flex items-start justify-between gap-2 mb-1.5">
-                                <h3 class="font-heading text-lg font-bold text-slate-800 dark:text-white leading-tight">Floren AI — Omnichannel Flower Commerce & Operations Platform</h3>
-                                <div class="flex items-center space-x-1.5 text-slate-400 flex-shrink-0">
-                                    <a href="https://github.com/Hoangnt1209/floren-ai" target="_blank" rel="noopener noreferrer" class="p-1 rounded-lg hover:text-white hover:bg-white/10 transition-colors" title="Source Code">
-                                        <i data-lucide="github" class="w-4 h-4"></i>
-                                    </a>
-                                    <button onclick="openProjectModal(3)" class="p-1 rounded-lg hover:text-rose-400 hover:bg-rose-500/10 transition-colors" title="Inspect Architecture & Screenshots">
-                                        <i data-lucide="external-link" class="w-4 h-4"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed line-clamp-2">
-                                Production remote-contract AI flower commerce &amp; admin SaaS: LangGraph + Gemini concierge across Web/Messenger/IG, PayOS/VietQR webhooks, and automated FB/IG scheduling.
-                            </p>
-                        </div>
-
-                        <!-- 3 Micro-Metrics -->
-                        <div class="grid grid-cols-3 gap-1.5 text-center select-none">
-                            <div class="px-1.5 py-1 rounded-lg bg-slate-900/60 border border-rose-500/20">
-                                <div class="text-[8px] text-slate-400 font-bold uppercase">AI Engine</div>
-                                <div class="text-[10px] font-mono font-bold text-rose-400">LangGraph + Gemini</div>
-                            </div>
-                            <div class="px-1.5 py-1 rounded-lg bg-slate-900/60 border border-rose-500/20">
-                                <div class="text-[8px] text-slate-400 font-bold uppercase">Integrations</div>
-                                <div class="text-[10px] font-mono font-bold text-emerald-400">PayOS &amp; Meta API</div>
-                            </div>
-                            <div class="px-1.5 py-1 rounded-lg bg-slate-900/60 border border-rose-500/20">
-                                <div class="text-[8px] text-slate-400 font-bold uppercase">Quality</div>
-                                <div class="text-[10px] font-mono font-bold text-sky-400">115 Pytest Tests</div>
-                            </div>
-                        </div>
-
-                        <!-- Tech Stack Tags -->
-                        <div class="flex flex-wrap gap-1.5 pt-1">
-                            <span class="text-[10px] bg-rose-500/10 border border-rose-500/30 px-2 py-0.5 rounded-md text-rose-300 font-semibold">FastAPI &amp; Next.js 15</span>
-                            <span class="text-[10px] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-md text-slate-300 font-semibold">LangGraph</span>
-                            <span class="text-[10px] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-md text-slate-300 font-semibold">PayOS / VietQR</span>
-                            <span class="text-[10px] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-md text-slate-300 font-semibold">Meta Graph API</span>
-                        </div>
-                    </div>
-                    
-                    <button onclick="openProjectModal(3)" class="w-full mt-5 py-3 rounded-xl border border-rose-500/35 hover:border-rose-400 hover:bg-rose-500/15 font-heading text-[10px] text-rose-300 font-bold tracking-widest cursor-pointer flex items-center justify-center space-x-2 transition-all duration-300 uppercase shadow-sm">
-                        <span>VIEW ARCHITECTURE &amp; GALLERY →</span>
-                    </button>
-                </div>
-
-                <!-- Project 4 (Smart CV Matcher & Semantic Profile Scorer) -->
-                <div class="project-card clay-card p-6 flex flex-col justify-between pocket-lift hover:shadow-[0_20px_45px_rgba(14,165,233,0.2)] duration-300 border border-sky-500/25 rounded-3xl" data-category="nlp">
-                    <div class="space-y-4">
-                        <!-- macOS Window Frame -->
-                        <div class="rounded-2xl overflow-hidden border border-white/10 bg-slate-950 shadow-xl relative group/img">
-                            <div class="px-3.5 py-2 bg-slate-900/90 border-b border-white/10 flex items-center justify-between select-none">
-                                <div class="flex items-center space-x-1.5">
-                                    <span class="w-2 h-2 rounded-full bg-rose-500/80"></span>
-                                    <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
-                                    <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
-                                </div>
-                                <div class="px-2.5 py-0.5 rounded-md bg-slate-950/80 border border-white/10 text-[9px] font-mono text-slate-400 flex items-center space-x-1">
-                                    <i data-lucide="lock" class="w-2 h-2 text-sky-400"></i>
-                                    <span>matcher.hoang.ai</span>
-                                </div>
-                                <span class="px-2 py-0.5 rounded-full bg-sky-500/15 border border-sky-500/30 text-[9px] font-bold text-sky-400 uppercase">
-                                    HYBRID RECRUITMENT
-                                </span>
-                            </div>
-                            <!-- Branded Official Logo Display on Tech Grid Canvas -->
-                            <div class="h-48 overflow-hidden relative flex items-center justify-center bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950">
-                                <!-- Blueprint Grid lines & Radial Cyan Glow -->
-                                <div class="absolute inset-0 bg-[radial-gradient(rgba(14,165,233,0.15)_1px,transparent_1px)] [background-size:12px_12px]"></div>
-                                <div class="absolute w-28 h-28 rounded-full bg-sky-500/20 blur-2xl pointer-events-none"></div>
-                                <div class="relative z-10 p-2.5 rounded-2xl bg-white shadow-[0_8px_30px_rgba(14,165,233,0.3)] border border-white/40 transform group-hover/img:scale-110 transition-transform duration-500">
-                                    <img src="assets/project_cv_matcher.png" alt="Smart CV Matcher Official Logo" class="h-28 w-28 object-contain">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Header & Meta -->
-                        <div>
-                            <div class="flex items-start justify-between gap-2 mb-1.5">
-                                <h3 class="font-heading text-lg font-bold text-slate-800 dark:text-white leading-tight">Smart CV Matcher & Semantic Profile Scorer</h3>
-                                <div class="flex items-center space-x-1.5 text-slate-400 flex-shrink-0">
-                                    <a href="https://github.com/Hoangnt1209" target="_blank" class="p-1 rounded-lg hover:text-white hover:bg-white/10 transition-colors" title="Source Code">
-                                        <i data-lucide="github" class="w-4 h-4"></i>
-                                    </a>
-                                    <button onclick="openProjectModal(4)" class="p-1 rounded-lg hover:text-sky-400 hover:bg-sky-500/10 transition-colors" title="Inspect Specs & Architecture">
-                                        <i data-lucide="external-link" class="w-4 h-4"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed line-clamp-2">
-                                Dual-sided recruitment matching platform combining dense CV & JD embeddings in QdrantDB with BM25 lexical search for candidate ranking and job fit.
-                            </p>
-                        </div>
-
-                        <!-- 3 Micro-Metrics -->
-                        <div class="grid grid-cols-3 gap-1.5 text-center select-none">
-                            <div class="px-1.5 py-1 rounded-lg bg-slate-900/60 border border-sky-500/20">
-                                <div class="text-[8px] text-slate-400 font-bold uppercase">Vector DB</div>
-                                <div class="text-[10px] font-mono font-bold text-sky-400">Qdrant Dense</div>
-                            </div>
-                            <div class="px-1.5 py-1 rounded-lg bg-slate-900/60 border border-sky-500/20">
-                                <div class="text-[8px] text-slate-400 font-bold uppercase">Search</div>
-                                <div class="text-[10px] font-mono font-bold text-emerald-400">BM25 + Semantic</div>
-                            </div>
-                            <div class="px-1.5 py-1 rounded-lg bg-slate-900/60 border border-sky-500/20">
-                                <div class="text-[8px] text-slate-400 font-bold uppercase">Efficiency</div>
-                                <div class="text-[10px] font-mono font-bold text-indigo-400">80% Time Saved</div>
-                            </div>
-                        </div>
-
-                        <!-- Tech Stack Tags -->
-                        <div class="flex flex-wrap gap-1.5 pt-1">
-                            <span class="text-[10px] bg-sky-500/10 border border-sky-500/30 px-2 py-0.5 rounded-md text-sky-400 font-semibold">Qdrant Vector DB</span>
-                            <span class="text-[10px] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-md text-slate-300 font-semibold">BM25 Hybrid Search</span>
-                            <span class="text-[10px] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-md text-slate-300 font-semibold">FastAPI</span>
-                            <span class="text-[10px] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-md text-slate-300 font-semibold">ReactJS</span>
-                        </div>
-                    </div>
-                    
-                    <button onclick="openProjectModal(4)" class="w-full mt-5 py-3 rounded-xl border border-sky-500/30 hover:border-sky-400 hover:bg-sky-500/15 font-heading text-[10px] text-sky-300 font-bold tracking-widest cursor-pointer flex items-center justify-center space-x-2 transition-all duration-300 uppercase shadow-sm">
-                        <span>ANALYZE ARCHITECTURE & SPECS →</span>
-                    </button>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- 7. CREDENTIALS SECTION -->
-        <section id="credentials" class="py-20 reveal-on-scroll">
-            <!-- Unique Red Collar pipeline separator with gold bell sliding micro-interaction -->
-            <div class="section-header-group flex flex-col mb-12 select-none group cursor-default">
-                <div class="flex items-center justify-between mb-3">
-                    <div class="flex items-baseline space-x-3.5">
-                         <h2 class="font-heading text-2xl md:text-4xl font-black tracking-wide text-slate-800 dark:text-white uppercase transition-colors duration-300 group-hover:text-doraemon-blue">CERTIFICATIONS & PUBLICATIONS</h2>
-                    </div>
-                </div>
-                <div class="cyber-collar-line w-full">
-                    <span class="cyber-collar-bell"></span>
-                </div>
-            </div>
-
-            <!-- Credentials Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Cert 1 -->
-                <div class="clay-card p-6 flex flex-col justify-between group">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2.5 rounded-xl bg-doraemon-blue/10 border border-doraemon-blue/20 text-doraemon-blue">
-                            <i data-lucide="check-circle" class="w-4.5 h-4.5"></i>
-                        </div>
-                        <span class="bg-slate-100 dark:bg-slate-900 px-2 py-0.5 rounded text-slate-500 font-bold text-[9px]">DEEPLEARNING.AI</span>
-                    </div>
-                    <div>
-                        <h3 class="font-heading font-semibold text-base text-slate-800 dark:text-white group-hover:text-doraemon-blue transition-colors duration-200">TensorFlow Developer Certificate</h3>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">International certification validating deep model pipelines, CNN architectures, and sequential time-series model designs.</p>
-                    </div>
-                </div>
-
-                <!-- Cert 2 -->
-                <div class="clay-card p-6 flex flex-col justify-between group">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2.5 rounded-xl bg-doraemon-blue/10 border border-doraemon-blue/20 text-doraemon-blue">
-                            <i data-lucide="check-circle" class="w-4.5 h-4.5"></i>
-                        </div>
-                        <span class="bg-slate-100 dark:bg-slate-900 px-2 py-0.5 rounded text-slate-500 font-bold text-[9px]">DEEPLEARNING.AI</span>
-                    </div>
-                    <div>
-                        <h3 class="font-heading font-semibold text-base text-slate-800 dark:text-white group-hover:text-doraemon-blue transition-colors duration-200">NLP Specialization</h3>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Validates expertise in Transformer networks, multi-layered attention layers, and dense vector semantic spaces.</p>
-                    </div>
-                </div>
-
-                <!-- Cert 3 -->
-                <div class="clay-card p-6 flex flex-col justify-between group">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2.5 rounded-xl bg-doraemon-blue/10 border border-doraemon-blue/20 text-doraemon-blue">
-                            <i data-lucide="check-circle" class="w-4.5 h-4.5"></i>
-                        </div>
-                        <span class="bg-slate-100 dark:bg-slate-900 px-2 py-0.5 rounded text-slate-500 font-bold text-[9px]">IBM CORPORATION</span>
-                    </div>
-                    <div>
-                        <h3 class="font-heading font-semibold text-base text-slate-800 dark:text-white group-hover:text-doraemon-blue transition-colors duration-200">AI Enterprise Workflows</h3>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">IBM standard curriculum covering operational machine learning life cycles and robust REST microservice containers.</p>
-                    </div>
-                </div>
-
-                <!-- Cert 4 -->
-                <div class="clay-card p-6 flex flex-col justify-between group">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2.5 rounded-xl bg-doraemon-blue/10 border border-doraemon-blue/20 text-doraemon-blue">
-                            <i data-lucide="check-circle" class="w-4.5 h-4.5"></i>
-                        </div>
-                        <span class="bg-slate-100 dark:bg-slate-950 px-2.5 py-0.5 rounded text-slate-505 font-bold text-[9px]">IBM CORPORATION</span>
-                    </div>
-                    <div>
-                        <h3 class="font-heading font-semibold text-base text-slate-800 dark:text-white group-hover:text-doraemon-blue transition-colors duration-200">Full Stack Software Developer</h3>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Validates structured understanding of database systems, REST API integration, and cloud-native services.</p>
-                    </div>
-                </div>
-
-                <!-- Publication 1 -->
-                <div class="clay-card p-6 flex flex-col justify-between border border-doraemon-gold/20 dark:border-doraemon-gold/15 md:col-span-2 lg:col-span-2 group">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2.5 rounded-xl bg-doraemon-gold/10 border border-doraemon-gold/25 text-doraemon-gold">
-                            <i data-lucide="book-open" class="w-4.5 h-4.5"></i>
-                        </div>
-                        <span class="bg-[#FEF3C7] dark:bg-slate-900 px-2.5 py-0.5 rounded text-[#D97706] dark:text-yellow-400 font-bold text-[9px]">CAN THO UNIVERSITY JOURNAL OF SCIENCE</span>
-                    </div>
-                    <div>
-                        <h3 class="font-heading font-semibold text-base text-slate-800 dark:text-white group-hover:text-doraemon-gold transition-colors duration-200">Optimizing MediaPipe Landmark Models for Vietnamese Sign Language Recognition</h3>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Proposed structural reduction algorithms for biomechanical hand landmark keypoints to secure high-speed frame processing, drastically shrinking deep model footprint weights. Published officially in CTU Sci-Journal.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 8. CONTACT SECTION -->
-        <section id="contact" class="py-20 reveal-on-scroll">
-            <!-- Unique Red Collar pipeline separator with gold bell sliding micro-interaction -->
-            <div class="section-header-group flex flex-col mb-12 select-none group cursor-default">
-                <div class="flex items-center justify-between mb-3">
-                    <div class="flex items-baseline space-x-3.5">
-                        <h2 class="font-heading text-2xl md:text-4xl font-black tracking-wide text-slate-800 dark:text-white uppercase transition-colors duration-300 group-hover:text-doraemon-blue">GET IN TOUCH</h2>
-                    </div>
-                </div>
-                <div class="cyber-collar-line w-full">
-                    <span class="cyber-collar-bell"></span>
-                </div>
-            </div>
-
-            <!-- Bento Contact Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-                <!-- Left Info Details -->
-                <div class="lg:col-span-5 clay-card p-6 md:p-8 flex flex-col justify-between gap-6">
-                    <div class="space-y-6">
-                        <div class="flex items-center space-x-2 text-[10px] font-bold tracking-widest text-doraemon-blue dark:text-sky-400 uppercase">
-                            <span>CONTACT DETAILS</span>
-                        </div>
-                        <h3 class="font-heading text-2xl font-bold text-slate-800 dark:text-white leading-tight">LAUNCH YOUR AI PROJECT</h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                            Looking to build custom RAG pipelines, optimize training workflows, orchestrate Multi-Agent loops, or deploy production-ready AI services? Leave a transmission signal below and let's construct the solution.
-                        </p>
-                    </div>
-
-                    <div class="space-y-4">
-                        <!-- Channel 1 -->
-                        <div class="flex items-center space-x-3.5 p-3 rounded-xl bg-white/60 dark:bg-slate-950/60 border border-[#0091D8]/10 dark:border-white/5 shadow-sm">
-                            <div class="w-10 h-10 rounded-xl bg-doraemon-blue/10 border border-doraemon-blue/20 flex items-center justify-center text-doraemon-blue">
-                                <i data-lucide="map-pin" class="w-4.5 h-4.5"></i>
-                            </div>
-                            <div>
-                                <p class="text-[8px] font-bold text-slate-400 uppercase tracking-widest">LOCATION</p>
-                                <p class="text-sm font-semibold text-slate-700 dark:text-slate-200">Ho Chi Minh City, Vietnam</p>
-                            </div>
-                        </div>
-
-                        <!-- Channel 2 -->
-                        <div class="flex items-center space-x-3.5 p-3 rounded-xl bg-white/60 dark:bg-slate-950/60 border border-[#0091D8]/10 dark:border-white/5 shadow-sm">
-                            <div class="w-10 h-10 rounded-xl bg-doraemon-blue/10 border border-doraemon-blue/20 flex items-center justify-center text-doraemon-blue">
-                                <i data-lucide="mail" class="w-4.5 h-4.5"></i>
-                            </div>
-                            <div>
-                                <p class="text-[8px] font-bold text-slate-400 uppercase tracking-widest">EMAIL</p>
-                                <p class="text-sm font-semibold text-slate-700 dark:text-slate-200">nth120923@gmail.com</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="text-slate-400 dark:text-slate-500 text-[9px] font-bold tracking-widest uppercase">SECURE COMMUNICATION</div>
-                </div>
-
-                <!-- Right Form Inputs -->
-                <div class="lg:col-span-7 clay-card p-6 md:p-8">
-                    <form id="contact-form" class="space-y-5" onsubmit="handleContactSubmit(event)">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                            <!-- Name -->
-                            <div class="space-y-2">
-                                <label class="block text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">YOUR NAME</label>
-                                <input type="text" id="form-name" name="name" required class="w-full bg-white/70 dark:bg-slate-950/80 border border-[#0091D8]/15 dark:border-white/5 focus:border-doraemon-blue focus:ring-1 focus:ring-doraemon-blue rounded-xl px-4 py-3 text-slate-800 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none transition-all duration-300 text-sm font-medium" placeholder="Identify your name...">
-                            </div>
-                            <!-- Email -->
-                            <div class="space-y-2">
-                                <label class="block text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">YOUR EMAIL</label>
-                                <input type="email" id="form-email" name="email" required class="w-full bg-white/70 dark:bg-slate-950/80 border border-[#0091D8]/15 dark:border-white/5 focus:border-doraemon-blue focus:ring-1 focus:ring-doraemon-blue rounded-xl px-4 py-3 text-slate-800 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none transition-all duration-300 text-sm font-medium" placeholder="Return email route...">
-                            </div>
-                        </div>
-
-                        <!-- Subject -->
-                        <div class="space-y-2">
-                            <label class="block text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">SUBJECT</label>
-                            <input type="text" id="form-subject" name="subject" required class="w-full bg-white/70 dark:bg-slate-950/80 border border-[#0091D8]/15 dark:border-white/5 focus:border-doraemon-blue focus:ring-1 focus:ring-doraemon-blue rounded-xl px-4 py-3 text-slate-800 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none transition-all duration-300 text-sm font-medium" placeholder="What are you building?...">
-                        </div>
-
-                        <!-- Message -->
-                        <div class="space-y-2">
-                            <label class="block text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">MESSAGE</label>
-                            <textarea id="form-message" name="message" rows="4" required class="w-full bg-white/70 dark:bg-slate-950/80 border border-[#0091D8]/15 dark:border-white/5 focus:border-doraemon-blue focus:ring-1 focus:ring-doraemon-blue rounded-xl px-4 py-3 text-slate-800 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none transition-all duration-300 text-sm font-medium resize-none" placeholder="Provide core specifications, datasets, or training targets..."></textarea>
-                        </div>
-
-                        <!-- Submit Button -->
-                        <button type="submit" class="w-full py-4 rounded-xl bg-[#0091D8] hover:bg-[#0091D8]/80 text-white font-heading font-bold text-xs tracking-wider border border-[#0091D8]/20 shadow-[0_4px_12px_rgba(0,145,216,0.2)] hover:shadow-[0_6px_20px_rgba(0,145,216,0.45)] cursor-pointer flex items-center justify-center space-x-2 transition-all duration-300">
-                            <i data-lucide="send" class="w-4 h-4"></i>
-                            <span>SEND MESSAGE</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="relative z-10 border-t border-slate-200 dark:border-white/5 bg-white/80 dark:bg-[#050814]/80 py-10 mt-12 text-center text-slate-400 dark:text-slate-500 text-[10px] font-bold uppercase tracking-widest">
-        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p>Nguyen Thanh Hoang © 2026 | AI Engineering Portfolio</p>
-            <div class="flex items-center space-x-1.5 text-slate-600 dark:text-slate-400 select-none">
-                <span>Made with Passion in HCMC</span>
-                <span class="text-doraemon-red animate-pulse">🇻🇳</span>
-            </div>
-        </div>
-    </footer>
-
-    <!-- 9. DYNAMIC SLIDE-UP 4D DRAWER MODAL -->
-    <div id="project-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-950/80 backdrop-blur-md px-4 py-6 transition-all duration-300">
-        <div id="modal-container" class="w-full max-w-4xl clay-card bg-white dark:bg-doraemon-dark border border-[#0091D8]/20 max-h-[90vh] overflow-y-auto transform translate-y-24 opacity-0 transition-all duration-500 ease-out flex flex-col relative">
-            
-            <button onclick="closeProjectModal()" class="absolute top-4 right-4 z-50 p-2.5 rounded-full bg-slate-100 dark:bg-slate-900 border border-[#0091D8]/10 dark:border-white/5 hover:border-doraemon-red text-slate-400 hover:text-doraemon-red cursor-pointer transition-all duration-200">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-                </svg>
-            </button>
-
-            <div class="h-2 w-full bg-gradient-to-r from-doraemon-blue via-doraemon-gold to-doraemon-red"></div>
-
-            <div class="p-6 md:p-10 flex flex-col md:flex-row gap-8">
-                <!-- Left: Big Mockup Visual & Info list -->
-                <div class="md:w-1/2 space-y-5">
-                    <div id="modal-visual" class="h-64 sm:h-72 w-full rounded-2xl border border-white/10 bg-slate-950 flex items-center justify-center overflow-hidden relative select-none p-2 shadow-2xl">
-                        <img id="modal-visual-img" src="" alt="Project Visual" class="w-full h-full max-h-64 object-contain rounded-xl transition-all duration-300 hidden">
-                        <div class="absolute inset-0 opacity-20" id="modal-visual-pattern"></div>
-                        <div class="absolute w-24 h-24 rounded-full filter blur-xl animate-pulse" id="modal-visual-glow"></div>
-                    </div>
-
-                    <!-- Optional Gallery Thumbnails -->
-                    <div id="modal-gallery-container" class="hidden flex gap-2 overflow-x-auto pb-1 no-scrollbar"></div>
-
-                    <div class="space-y-3 text-[10px] font-bold bg-slate-100/60 dark:bg-slate-950/40 p-4.5 rounded-xl border border-[#0091D8]/10 dark:border-white/5 uppercase tracking-wider">
-                        <div class="flex justify-between border-b border-[#0091D8]/10 dark:border-white/5 pb-2">
-                            <span class="text-slate-400 dark:text-slate-500">ROLE & TEAM</span>
-                            <span id="modal-team" class="text-slate-700 dark:text-slate-200"></span>
-                        </div>
-                        <div class="flex justify-between border-b border-[#0091D8]/10 dark:border-white/5 pb-2">
-                            <span class="text-slate-400 dark:text-slate-500">DOMAIN</span>
-                            <span id="modal-type" class="text-slate-700 dark:text-slate-200"></span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-slate-400 dark:text-slate-500">LIVE URL</span>
-                            <a id="modal-routing" href="https://vietstockassistant.netlify.app/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">vietstockassistant.netlify.app</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right: Content details -->
-                <div class="md:w-1/2 flex flex-col justify-between space-y-6">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between gap-3 border-b border-white/10 pb-3">
-                            <span id="modal-domain-badge" class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border"></span>
-                            <span class="text-[10px] font-mono text-slate-400 flex items-center gap-1.5 select-none">
-                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                                ARCHITECTURE VIEW
-                            </span>
-                        </div>
-                        <h3 id="modal-title" class="font-heading text-2xl font-bold text-slate-800 dark:text-white"></h3>
-                        
-                        <div class="space-y-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                            <p id="modal-desc-full"></p>
-                        </div>
-
-                        <!-- Technical stack pills -->
-                        <div class="pt-2">
-                            <h4 class="text-[9px] font-bold text-slate-400 dark:text-slate-500 mb-2.5 uppercase tracking-widest">TECH STACK & FRAMEWORKS</h4>
-                            <div class="flex flex-wrap gap-2" id="modal-stack-pills"></div>
-                        </div>
-
-                        <!-- Highlight parameters -->
-                        <div class="pt-2">
-                            <h4 class="text-[9px] font-bold text-slate-400 dark:text-slate-500 mb-2.5 uppercase tracking-widest">KEY ARCHITECTURAL HIGHLIGHTS</h4>
-                            <div class="p-3 bg-slate-100/60 dark:bg-slate-950/60 rounded-xl border border-[#0091D8]/10 dark:border-white/5 text-slate-600 dark:text-slate-300 text-xs leading-relaxed font-semibold" id="modal-highlights"></div>
-                        </div>
-                    </div>
-
-                    <!-- Bottom CTA action buttons -->
-                    <div class="pt-4 flex flex-wrap sm:flex-nowrap gap-3">
-                        <a id="modal-live-link" href="https://vietstockassistant.netlify.app/" target="_blank" rel="noopener noreferrer" class="py-3 px-5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-bold text-[10px] tracking-wider uppercase cursor-pointer flex items-center justify-center space-x-1.5 transition-all shadow-md">
-                            <i data-lucide="external-link" class="w-4 h-4"></i>
-                            <span>LIVE DEMO</span>
-                        </a>
-
-                        <a id="modal-repo-link" href="https://github.com/Hoangnt1209" target="_blank" rel="noopener noreferrer" class="flex-grow py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-[10px] tracking-wider uppercase cursor-pointer flex items-center justify-center space-x-2 transition-all duration-200">
-                            <i data-lucide="github" class="w-4 h-4"></i>
-                            <span>REPOSITORY</span>
-                        </a>
-                        
-                        <button onclick="closeProjectModal()" class="px-6 py-3 rounded-xl border border-slate-300 dark:border-white/10 hover:border-doraemon-red/50 hover:bg-doraemon-red/10 text-slate-500 dark:text-slate-400 hover:text-doraemon-red font-bold text-[10px] tracking-wider uppercase cursor-pointer transition-all duration-200">
-                            CLOSE
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- ───────────────────────────────────────────────────────── -->
-    <!-- FLOATING AI AGENT LAUNCHER (BOTTOM-RIGHT CORNER)          -->
-    <!-- ───────────────────────────────────────────────────────── -->
-    <div id="agent-launcher-wrapper" class="fixed bottom-6 right-6 z-[999]">
-        <button 
-            id="agent-dock" 
-            onclick="openAgentChat()" 
-            class="relative w-14 h-14 rounded-full backdrop-blur-2xl bg-slate-950/90 border border-doraemon-blue/50 text-white cursor-pointer select-none group shadow-[0_10px_35px_rgba(0,145,216,0.35),0_0_20px_rgba(0,145,216,0.2)] hover:shadow-[0_12px_45px_rgba(0,145,216,0.5),0_0_30px_rgba(0,145,216,0.4)] transition-all duration-300 hover:scale-105 hover:border-doraemon-blue flex items-center justify-center"
-            role="button" 
-            aria-label="Explore my portfolio with AI Guide"
-            title="Explore my portfolio"
-        >
-            <!-- Glowing Beacon Dot -->
-            <span class="absolute -top-0.5 -right-0.5 flex h-3.5 w-3.5">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-400 border-2 border-slate-950"></span>
-            </span>
-
-            <!-- AI Sparkle Icon -->
-            <svg class="w-6 h-6 text-doraemon-blue group-hover:text-white transition-colors duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 01-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L4.2 15.3"/>
-            </svg>
-
-            <!-- Accessible Hover Tooltip -->
-            <span class="absolute right-16 px-3 py-1.5 rounded-xl bg-slate-950/95 border border-doraemon-blue/30 text-xs font-semibold text-slate-200 whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-200 shadow-xl transform translate-x-2 group-hover:translate-x-0">
-                ✨ Explore my portfolio <kbd class="ml-1 px-1.5 py-0.5 rounded text-[9px] bg-white/10 text-doraemon-blue font-bold">⌘K</kbd>
-            </span>
+<body class="bg-[#fbf9f6] text-[#29221e] selection:bg-[#f7e9e0] selection:text-[#a3512d]">
+
+  <!-- Floating Pill Navigation -->
+  <header class="fixed top-4 left-0 right-0 z-40 px-4 sm:px-6 pointer-events-none">
+    <nav class="nav-pill max-w-6xl mx-auto h-14 px-4 sm:px-6 rounded-full flex items-center justify-between pointer-events-auto">
+      <a href="#hero" class="flex items-center gap-2 font-semibold text-sm tracking-tight text-[#29221e]">
+        <span class="w-2 h-2 rounded-full bg-[#c1663c]"></span>
+        <span>Nguyễn Thanh Hoàng</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-7 text-[13px] font-medium">
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#credentials" class="nav-link">Credentials</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <a href="assets/Nguyen_Thanh_Hoang_CV.pdf" download="Nguyen_Thanh_Hoang_CV.pdf" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium btn-ceramic">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <span>CV</span>
+        </a>
+        <a href="#contact" class="inline-flex items-center gap-1 px-4 py-1.5 rounded-full text-xs font-medium btn-terracotta">
+          <span>Get in touch</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </a>
+        <button type="button" onclick="toggleMobileMenu()" aria-label="Menu" class="md:hidden p-2 rounded-full text-[#5b4f47] hover:bg-[#f4ece1]">
+          <i data-lucide="menu" class="w-4 h-4"></i>
         </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden max-w-6xl mx-auto mt-2 p-4 rounded-2xl bg-white border border-[#e5dbcd] shadow-xl pointer-events-auto">
+      <div class="flex flex-col gap-2 text-sm font-medium text-[#29221e]">
+        <a href="#experience" onclick="toggleMobileMenu()" class="px-3 py-2 rounded-xl hover:bg-[#f4ece1]">Experience</a>
+        <a href="#projects" onclick="toggleMobileMenu()" class="px-3 py-2 rounded-xl hover:bg-[#f4ece1]">Projects</a>
+        <a href="#skills" onclick="toggleMobileMenu()" class="px-3 py-2 rounded-xl hover:bg-[#f4ece1]">Skills</a>
+        <a href="#credentials" onclick="toggleMobileMenu()" class="px-3 py-2 rounded-xl hover:bg-[#f4ece1]">Credentials</a>
+        <a href="#contact" onclick="toggleMobileMenu()" class="px-3 py-2 rounded-xl hover:bg-[#f4ece1]">Contact</a>
+        <a href="assets/Nguyen_Thanh_Hoang_CV.pdf" download="Nguyen_Thanh_Hoang_CV.pdf" class="mt-1 px-3 py-2 rounded-xl bg-[#f7e9e0] text-[#a3512d] font-semibold text-center">Download CV (PDF)</a>
+      </div>
     </div>
+  </header>
 
-    <!-- ───────────────────────────────────────────────────────── -->
-    <!-- FLOATING AI AGENT PANEL (BOTTOM-RIGHT POPUP CARD)         -->
-    <!-- ───────────────────────────────────────────────────────── -->
-    <div id="agent-chat-modal" class="agent-floating-panel fixed bottom-6 right-6 z-[1000] hidden">
-        <div class="agent-panel-card w-[380px] sm:w-[420px] h-[560px] max-h-[85vh] bg-slate-950/95 border border-doraemon-blue/30 rounded-2xl shadow-[-10px_10px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(0,145,216,0.2)] flex flex-col overflow-hidden backdrop-blur-2xl">
-            
-            <!-- Neon top accent line -->
-            <div class="h-1 w-full bg-gradient-to-r from-doraemon-blue via-emerald-400 to-doraemon-gold flex-shrink-0"></div>
+  <main>
+    <!-- 1. HERO SECTION (Warm Ceramic) -->
+    <section id="hero" class="hero-ambient pt-28 pb-16 lg:pt-36 lg:pb-24 border-b border-[#e5dbcd]">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Left Copy -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#e5dbcd] text-xs font-medium text-[#5b4f47] shadow-2xs">
+            <span class="w-2 h-2 rounded-full bg-[#c1663c]"></span>
+            <span>AI Engineer · Ho Chi Minh City, Vietnam</span>
+          </div>
 
-            <!-- A. HEADER -->
-            <div class="px-4 py-3 border-b border-white/10 flex items-center justify-between bg-slate-900/60 backdrop-blur-xl flex-shrink-0">
-                <div class="flex items-center space-x-2.5">
-                    <div class="w-8 h-8 rounded-xl bg-doraemon-blue/15 border border-doraemon-blue/30 flex items-center justify-center text-doraemon-blue relative shadow-inner">
-                        <svg class="w-4.5 h-4.5 text-doraemon-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 01-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L4.2 15.3"/>
-                        </svg>
-                        <span class="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-400 border-[1.5px] border-slate-950"></span>
-                    </div>
-                    <div>
-                        <div class="flex items-center space-x-1.5">
-                            <h3 class="font-heading font-bold text-sm text-white tracking-wide">hoang.agent</h3>
-                            <span class="px-1.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-[8px] font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1">
-                                <span class="w-1 h-1 rounded-full bg-emerald-400 animate-pulse"></span> READY
-                            </span>
-                        </div>
-                        <p class="text-[10px] text-slate-400">Personal AI Portfolio Guide</p>
-                    </div>
-                </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-tight leading-[1.08] text-[#29221e]">
+            Nguyễn Thanh Hoàng<span class="text-[#c1663c]">.</span>
+          </h1>
 
-                <div class="flex items-center space-x-1">
-                    <button onclick="clearAgentChat()" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors" title="Clear conversation">
-                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
-                        </svg>
-                    </button>
-                    <button onclick="closeAgentChat()" class="p-1.5 rounded-lg text-slate-400 hover:text-doraemon-red hover:bg-doraemon-red/10 transition-colors" title="Close (Esc)">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-                        </svg>
-                    </button>
-                </div>
+          <p class="text-[15.5px] sm:text-base leading-relaxed text-[#5b4f47] max-w-xl">
+            AI Engineer (M.S. candidate in Software Engineering – AI) specializing in
+            <strong class="font-semibold text-[#29221e]">LangGraph multi-agent systems, production RAG pipelines, and computer vision</strong>
+            with Python, FastAPI, and Next.js. Shipping end-to-end AI products from data ingestion to live client deployments.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-3 pt-1">
+            <a href="#projects" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium btn-terracotta">
+              <span>View Selected Work</span>
+              <i data-lucide="arrow-down" class="w-4 h-4"></i>
+            </a>
+            <a href="assets/Nguyen_Thanh_Hoang_CV.pdf" download="Nguyen_Thanh_Hoang_CV.pdf" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium btn-ceramic">
+              <i data-lucide="download" class="w-4 h-4 text-[#c1663c]"></i>
+              <span>Download CV (PDF)</span>
+            </a>
+          </div>
+
+          <div class="pt-6 border-t border-[#e5dbcd] grid grid-cols-3 gap-6 max-w-lg">
+            <div>
+              <div class="text-2xl font-bold tracking-tight text-[#29221e]">5+</div>
+              <div class="text-xs text-[#8b7d72] mt-0.5">Shipped AI Systems</div>
             </div>
-
-            <!-- C. CONVERSATION AREA -->
-            <div id="agent-chat-messages" class="flex-1 overflow-y-auto p-4 space-y-3.5 scrollbar-thin">
-                <!-- Welcome Introduction + Prompt Chips rendered via JS -->
+            <div>
+              <div class="text-2xl font-bold tracking-tight text-[#29221e]">115+</div>
+              <div class="text-xs text-[#8b7d72] mt-0.5">Automated Tests</div>
             </div>
-
-            <!-- D. INPUT AREA -->
-            <div class="bg-slate-900/90 border-t border-white/10 backdrop-blur-xl flex-shrink-0 flex flex-col">
-                
-                <!-- Quick Suggestion Pills (Horizontally Scrollable) -->
-                <div class="px-3 pt-2.5 pb-1 flex items-center gap-1.5 overflow-x-auto no-scrollbar" id="agent-suggestion-pills">
-                    <!-- Rendered dynamically from SUGGESTED_PROMPTS -->
-                </div>
-
-                <!-- Input Form -->
-                <div class="p-3 pt-1.5">
-                    <form id="agent-chat-form" onsubmit="handleAgentChatSubmit(event)" class="flex items-center gap-2">
-                        <div class="relative flex-1">
-                            <input 
-                                type="text" 
-                                id="agent-chat-input" 
-                                placeholder="Ask anything about my work..." 
-                                autocomplete="off"
-                                class="w-full pl-3.5 pr-8 py-2.5 rounded-xl bg-slate-950/90 border border-white/10 focus:border-doraemon-blue focus:ring-1 focus:ring-doraemon-blue text-xs text-white placeholder-slate-500 outline-none transition-all shadow-inner"
-                            >
-                        </div>
-                        <button type="submit" id="agent-chat-send" class="h-10 px-3.5 rounded-xl bg-gradient-to-r from-doraemon-blue to-sky-600 hover:from-doraemon-blue/90 hover:to-sky-500 text-white font-bold text-xs tracking-wider flex items-center justify-center transition-all shadow-[0_4px_15px_rgba(0,145,216,0.3)] cursor-pointer flex-shrink-0" title="Send message">
-                            <svg class="w-4 h-4 transform rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 19V5m-7 7l7-7 7 7"/>
-                            </svg>
-                        </button>
-                    </form>
-                    <div class="flex items-center justify-between text-[9px] text-slate-500 pt-1.5 px-0.5">
-                        <span>Press Enter to send • Auto-navigates to sections</span>
-                        <span class="text-emerald-400 font-mono flex items-center gap-1">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Guide Active
-                        </span>
-                    </div>
-                </div>
+            <div>
+              <div class="text-2xl font-bold tracking-tight text-[#29221e]">1</div>
+              <div class="text-xs text-[#8b7d72] mt-0.5">Published Paper</div>
             </div>
-
+          </div>
         </div>
+
+        <!-- Right Portrait Frame -->
+        <div class="lg:col-span-5 flex justify-center lg:justify-end">
+          <div class="relative w-full max-w-[340px]">
+            <div class="arch-grid rounded-3xl p-4 border border-[#e5dbcd] shadow-[0_24px_50px_-28px_rgba(41,34,30,0.28)]">
+              <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-white border border-[#e5dbcd]">
+                <img src="assets/avatar_real.png" alt="Nguyễn Thanh Hoàng" class="w-full h-full object-cover object-top">
+              </div>
+            </div>
+
+            <!-- Floating Availability Pill -->
+            <div class="absolute -bottom-4 -left-3 sm:-left-6 bg-white border border-[#e5dbcd] rounded-2xl px-4 py-2.5 shadow-md flex items-center gap-2.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
+              <div class="leading-tight">
+                <div class="text-[10px] uppercase tracking-wider text-[#8b7d72] font-semibold">Currently</div>
+                <div class="text-xs font-semibold text-[#29221e]">Open to AI Engineer roles</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. EXPERIENCE SECTION (Soft Sand) -->
+    <section id="experience" class="bg-[#f4ece1] py-20 lg:py-24 border-b border-[#e5dbcd]">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="mb-12 max-w-2xl">
+          <div class="section-eyebrow mb-3">Career</div>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-[#29221e]">Work Experience</h2>
+          <p class="mt-2.5 text-[15px] text-[#5b4f47]">
+            Research → engineering → production. Hands-on delivery across multi-agent orchestration, RAG retrieval, and edge computer vision.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <!-- Exp 1 -->
+          <article class="editorial-card p-6 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 text-xs text-[#8b7d72] font-mono-tech mb-2">
+                <span>Future Space Technology JSC</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#f7e9e0] text-[#a3512d] font-sans font-semibold text-[11px]">Jan 2026 – Present</span>
+              </div>
+              <h3 class="text-lg font-bold text-[#29221e]">AI Engineer</h3>
+              <ul class="mt-3 space-y-2 text-[14px] text-[#5b4f47] list-disc pl-4 leading-relaxed">
+                <li>Built a multi-agent <strong class="text-[#29221e]">LangGraph</strong> workflow (Crawler, Writer, Publisher) automating web-to-persona content generation with OpenAI &amp; Gemini APIs.</li>
+                <li>Trained and evaluated <strong class="text-[#29221e]">YOLO26</strong> and <strong class="text-[#29221e]">DETR</strong> models for small-insect detection on sticky-paper trap imagery for offline edge inference.</li>
+                <li>Engineered <strong class="text-[#29221e]">FastAPI</strong> backend services with strict Pydantic validation and technical API documentation.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Exp 2 -->
+          <article class="editorial-card p-6 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 text-xs text-[#8b7d72] font-mono-tech mb-2">
+                <span>UMMO (Remote, Part-time)</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#f4ece1] text-[#5b4f47] font-sans font-semibold text-[11px]">Jan 2026 – Apr 2026</span>
+              </div>
+              <h3 class="text-lg font-bold text-[#29221e]">AI Engineer</h3>
+              <ul class="mt-3 space-y-2 text-[14px] text-[#5b4f47] list-disc pl-4 leading-relaxed">
+                <li>Engineered conversational LLM agent workflows for an AI-assisted teaching and learning platform.</li>
+                <li>Built an OCR and document ingestion pipeline for course materials and scanned PDFs, automating text extraction and embedding generation.</li>
+                <li>Benchmarked and integrated <strong class="text-[#29221e]">FAISS, Pinecone, and PostgreSQL/pgvector</strong> for low-latency RAG Q&amp;A.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Exp 3 -->
+          <article class="editorial-card p-6 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 text-xs text-[#8b7d72] font-mono-tech mb-2">
+                <span>FPT Software Ho Chi Minh</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#f4ece1] text-[#5b4f47] font-sans font-semibold text-[11px]">Sep 2025 – Nov 2025</span>
+              </div>
+              <h3 class="text-lg font-bold text-[#29221e]">AI Engineer Intern</h3>
+              <ul class="mt-3 space-y-2 text-[14px] text-[#5b4f47] list-disc pl-4 leading-relaxed">
+                <li>Engineered LLM-assisted code translation workflows using OpenAI and Gemini APIs to accelerate legacy <strong class="text-[#29221e]">COBOL &amp; RPG</strong> migration to <strong class="text-[#29221e]">Java</strong>.</li>
+                <li>Developed an internal specification-to-test-case generator parsing business requirements into structured QA suites exported to Excel.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Exp 4 -->
+          <article class="editorial-card p-6 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 text-xs text-[#8b7d72] font-mono-tech mb-2">
+                <span>FPT Academy Quy Nhon</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#f4ece1] text-[#5b4f47] font-sans font-semibold text-[11px]">Jan 2024 – Apr 2024</span>
+              </div>
+              <h3 class="text-lg font-bold text-[#29221e]">Full-Stack AI Intern</h3>
+              <ul class="mt-3 space-y-2 text-[14px] text-[#5b4f47] list-disc pl-4 leading-relaxed">
+                <li>Built a hybrid <strong class="text-[#29221e]">RAG &amp; semantic CV–JD matching backend</strong> using LangChain and Qdrant, cutting manual HR candidate screening time by over <strong class="text-[#29221e]">80%</strong>.</li>
+                <li>Designed a decoupled FastAPI client-server API and React dashboard serving real-time candidate compatibility scoring.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SELECTED WORK / PROJECTS (Warm Ceramic) -->
+    <section id="projects" class="bg-[#fbf9f6] py-20 lg:py-24 border-b border-[#e5dbcd]">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div class="max-w-xl">
+            <div class="section-eyebrow mb-3">Selected Work</div>
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-[#29221e]">Projects</h2>
+            <p class="mt-2.5 text-[15px] text-[#5b4f47]">
+              Each project card opens the full architecture diagram, screenshots, engineering decisions, and repository link.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            <button type="button" data-filter-btn="all" onclick="filterProjects('all')" class="filter-pill active px-4 py-2 rounded-full text-xs font-medium cursor-pointer">All (5)</button>
+            <button type="button" data-filter-btn="nlp" onclick="filterProjects('nlp')" class="filter-pill px-4 py-2 rounded-full text-xs font-medium cursor-pointer">AI Agents &amp; RAG</button>
+            <button type="button" data-filter-btn="cv" onclick="filterProjects('cv')" class="filter-pill px-4 py-2 rounded-full text-xs font-medium cursor-pointer">Computer Vision</button>
+          </div>
+        </div>
+
+        <!-- Unified PAIT Engineering Case-Study List (Scannable in 6 Seconds) -->
+        <div class="space-y-6">
+          <!-- Case Study 01: Floren AI -->
+          <article id="project-floren" class="project-card editorial-card p-6 lg:p-7 grid grid-cols-1 lg:grid-cols-12 gap-7 items-center" data-category="nlp">
+            <div class="lg:col-span-5">
+              <div onclick="openProjectModal(3)" class="cursor-pointer rounded-2xl overflow-hidden border border-[#e5dbcd] bg-white p-2 group relative">
+                <img src="assets/floren_architecture.jpg" alt="Floren AI Production System Architecture" class="w-full aspect-[16/10] object-contain rounded-xl transition-transform duration-300 group-hover:scale-[1.02]">
+                <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-[#29221e]/90 text-white text-[11px] font-medium">
+                  Architecture + 4 Screens
+                </span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-3.5">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="px-3 py-1 rounded-full bg-[#f7e9e0] text-[#a3512d] text-[11px] font-semibold uppercase tracking-wide">01 · Remote Client · Production</span>
+                <span class="font-mono-tech text-xs text-[#8b7d72]">115 Pytest · Strict Mypy</span>
+              </div>
+
+              <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-[#29221e] leading-snug">
+                Floren AI — AI-Assisted E-Commerce &amp; Operations Platform
+              </h3>
+
+              <dl class="space-y-2 text-[13.5px] leading-relaxed">
+                <div class="flex gap-2">
+                  <dt class="w-24 flex-shrink-0 font-mono-tech text-[11px] font-semibold uppercase tracking-wider text-[#8b7d72] pt-0.5">Problem</dt>
+                  <dd class="text-[#5b4f47]">Retail flower studios lose orders across Web/Messenger/IG; letting LLMs quote prices causes billing hallucinations.</dd>
+                </div>
+                <div class="flex gap-2">
+                  <dt class="w-24 flex-shrink-0 font-mono-tech text-[11px] font-semibold uppercase tracking-wider text-[#c1663c] pt-0.5">Decision</dt>
+                  <dd class="text-[#29221e]">Isolated pricing, stock &amp; order FSM into deterministic backend tools called by a stateful <strong>LangGraph + Gemini</strong> agent, paired with PayOS/VietQR webhooks &amp; Meta Graph API scheduling.</dd>
+                </div>
+                <div class="flex gap-2">
+                  <dt class="w-24 flex-shrink-0 font-mono-tech text-[11px] font-semibold uppercase tracking-wider text-emerald-700 pt-0.5">Proof</dt>
+                  <dd class="text-[#5b4f47]">Zero-hallucination billing, HttpOnly auth + SSRF/EXIF hardening, <strong>115 passing tests</strong>, and a low-tech <code class="font-mono-tech text-xs bg-[#f4ece1] px-1 rounded">/admin</code> portal.</dd>
+                </div>
+              </dl>
+
+              <div class="flex flex-wrap items-center gap-3 pt-1">
+                <button type="button" onclick="openProjectModal(3)" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold btn-terracotta cursor-pointer">
+                  <span>Read Case Study &amp; Trade-offs</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </button>
+                <a href="https://github.com/Hoangnt1209/floren-ai" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-semibold btn-ceramic">
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                  <span>Source Code</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Case Study 02: VietStock AI -->
+          <article id="project-vietstock" class="project-card editorial-card p-6 lg:p-7 grid grid-cols-1 lg:grid-cols-12 gap-7 items-center" data-category="nlp">
+            <div class="lg:col-span-5">
+              <div onclick="openProjectModal(5)" class="cursor-pointer rounded-2xl overflow-hidden border border-[#e5dbcd] bg-[#f4ece1] p-2 group relative">
+                <img src="assets/project_vietstock.png" alt="VietStock AI Stock Market Intelligence" class="w-full aspect-[16/10] object-cover rounded-xl transition-transform duration-300 group-hover:scale-[1.02]">
+                <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-emerald-700 text-white text-[11px] font-medium">
+                  Live Production Demo
+                </span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-3.5">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-semibold uppercase tracking-wide">02 · Live Web App · FinTech AI</span>
+                <span class="font-mono-tech text-xs text-[#8b7d72]">SSE Streaming · TTL Cache</span>
+              </div>
+
+              <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-[#29221e] leading-snug">
+                VietStock AI — Autonomous Stock Market Intelligence
+              </h3>
+
+              <dl class="space-y-2 text-[13.5px] leading-relaxed">
+                <div class="flex gap-2">
+                  <dt class="w-24 flex-shrink-0 font-mono-tech text-[11px] font-semibold uppercase tracking-wider text-[#8b7d72] pt-0.5">Problem</dt>
+                  <dd class="text-[#5b4f47]">Standard LLMs miscalculate RSI/MACD on raw price series and suffer multi-second cold starts on Vietnam equity lookups.</dd>
+                </div>
+                <div class="flex gap-2">
+                  <dt class="w-24 flex-shrink-0 font-mono-tech text-[11px] font-semibold uppercase tracking-wider text-[#c1663c] pt-0.5">Decision</dt>
+                  <dd class="text-[#29221e]">Computed exact indicators in deterministic <strong>Pandas &amp; NumPy</strong> tools before Gemini commentary, streaming interactive Recharts candlestick payloads over <strong>SSE</strong>.</dd>
+                </div>
+                <div class="flex gap-2">
+                  <dt class="w-24 flex-shrink-0 font-mono-tech text-[11px] font-semibold uppercase tracking-wider text-emerald-700 pt-0.5">Proof</dt>
+                  <dd class="text-[#5b4f47]">Deployed live on Netlify with <strong>sub-second cached query resolution</strong> across HOSE, HNX &amp; UPCOM tickers.</dd>
+                </div>
+              </dl>
+
+              <div class="flex flex-wrap items-center gap-3 pt-1">
+                <a href="https://vietstockassistant.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-semibold btn-terracotta">
+                  <span>Open Live Demo</span>
+                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                </a>
+                <button type="button" onclick="openProjectModal(5)" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-semibold btn-ceramic cursor-pointer">
+                  <span>Read Case Study</span>
+                </button>
+                <a href="https://github.com/Hoangnt1209/VietStock-Ai-Assistant" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-semibold btn-ceramic">
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                  <span>Source Code</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Case Study 03: Automated Bakery Self-Checkout -->
+          <article class="project-card editorial-card p-6 lg:p-7 grid grid-cols-1 lg:grid-cols-12 gap-7 items-center" data-category="cv">
+            <div class="lg:col-span-5">
+              <div onclick="openProjectModal(2)" class="cursor-pointer rounded-2xl overflow-hidden border border-[#e5dbcd] bg-[#f4ece1] p-2 group relative">
+                <img src="assets/project_pastry_detection.png" alt="Automated Bakery Self-Checkout" class="w-full aspect-[16/10] object-cover rounded-xl transition-transform duration-300 group-hover:scale-[1.02]">
+                <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-[#29221e]/85 text-white text-[11px] font-medium">
+                  70K+ Images · &lt;10ms
+                </span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-3.5">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="px-3 py-1 rounded-full bg-[#f7e9e0] text-[#a3512d] text-[11px] font-semibold uppercase tracking-wide">03 · Edge Computer Vision</span>
+                <span class="font-mono-tech text-xs text-[#8b7d72]">ONNX · Triton Server</span>
+              </div>
+
+              <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-[#29221e] leading-snug">
+                Automated Bakery Self-Checkout &amp; Pastry Detection
+              </h3>
+
+              <dl class="space-y-2 text-[13.5px] leading-relaxed">
+                <div class="flex gap-2">
+                  <dt class="w-24 flex-shrink-0 font-mono-tech text-[11px] font-semibold uppercase tracking-wider text-[#8b7d72] pt-0.5">Problem</dt>
+                  <dd class="text-[#5b4f47]">Unbarcoded, visually similar pastries bottleneck bakery checkout queues; cloud VLM APIs are too slow and costly per tray.</dd>
+                </div>
+                <div class="flex gap-2">
+                  <dt class="w-24 flex-shrink-0 font-mono-tech text-[11px] font-semibold uppercase tracking-wider text-[#c1663c] pt-0.5">Decision</dt>
+                  <dd class="text-[#29221e]">Built a <strong>70,000+ image</strong> dataset (AutoCrawler + LabelImg), benchmarked <strong>YOLOv6/v8</strong>, and compiled to ONNX Runtime on Triton Inference Server.</dd>
+                </div>
+                <div class="flex gap-2">
+                  <dt class="w-24 flex-shrink-0 font-mono-tech text-[11px] font-semibold uppercase tracking-wider text-emerald-700 pt-0.5">Proof</dt>
+                  <dd class="text-[#5b4f47]"><strong>70%–80% multi-pastry accuracy</strong> with <strong>sub-10ms edge inference</strong> and $0 per-tray API cost.</dd>
+                </div>
+              </dl>
+
+              <div class="flex flex-wrap items-center gap-3 pt-1">
+                <button type="button" onclick="openProjectModal(2)" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold btn-ceramic cursor-pointer">
+                  <span>Read Case Study &amp; Trade-offs</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Case Study 04: Smart CV Matcher -->
+          <article class="project-card editorial-card p-6 lg:p-7 grid grid-cols-1 lg:grid-cols-12 gap-7 items-center" data-category="nlp">
+            <div class="lg:col-span-5">
+              <div onclick="openProjectModal(4)" class="cursor-pointer rounded-2xl overflow-hidden border border-[#e5dbcd] bg-white p-6 group flex items-center justify-center aspect-[16/10]">
+                <img src="assets/project_cv_matcher.png" alt="Smart CV Matcher" class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.03]">
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-3.5">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="px-3 py-1 rounded-full bg-[#f7e9e0] text-[#a3512d] text-[11px] font-semibold uppercase tracking-wide">04 · Hybrid Vector Search</span>
+                <span class="font-mono-tech text-xs text-[#8b7d72]">Qdrant · BM25</span>
+              </div>
+
+              <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-[#29221e] leading-snug">
+                Smart CV Matcher &amp; Semantic Profile Scorer
+              </h3>
+
+              <dl class="space-y-2 text-[13.5px] leading-relaxed">
+                <div class="flex gap-2">
+                  <dt class="w-24 flex-shrink-0 font-mono-tech text-[11px] font-semibold uppercase tracking-wider text-[#8b7d72] pt-0.5">Problem</dt>
+                  <dd class="text-[#5b4f47]">Dense-only vector search misses mandatory hard-skill keywords (certifications, exact stacks), while manual screening takes hours.</dd>
+                </div>
+                <div class="flex gap-2">
+                  <dt class="w-24 flex-shrink-0 font-mono-tech text-[11px] font-semibold uppercase tracking-wider text-[#c1663c] pt-0.5">Decision</dt>
+                  <dd class="text-[#29221e]">Fused dense <strong>Qdrant</strong> embeddings with sparse <strong>BM25</strong> lexical scoring in a FastAPI + React service for both recruiters and applicants.</dd>
+                </div>
+                <div class="flex gap-2">
+                  <dt class="w-24 flex-shrink-0 font-mono-tech text-[11px] font-semibold uppercase tracking-wider text-emerald-700 pt-0.5">Proof</dt>
+                  <dd class="text-[#5b4f47]">Cut manual HR screening time by <strong>over 80%</strong> while surfacing skill-gap recommendations for candidates.</dd>
+                </div>
+              </dl>
+
+              <div class="flex flex-wrap items-center gap-3 pt-1">
+                <button type="button" onclick="openProjectModal(4)" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold btn-ceramic cursor-pointer">
+                  <span>Read Case Study &amp; Trade-offs</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Case Study 05: Multi-Source RAG -->
+          <article class="project-card editorial-card p-6 lg:p-7 grid grid-cols-1 lg:grid-cols-12 gap-7 items-center" data-category="nlp">
+            <div class="lg:col-span-5">
+              <div onclick="openProjectModal(1)" class="cursor-pointer rounded-2xl overflow-hidden border border-[#e5dbcd] bg-[#f4ece1] p-2 group">
+                <img src="assets/project_rag.png" alt="Multi-Source RAG Assistant" class="w-full aspect-[16/10] object-cover rounded-xl transition-transform duration-300 group-hover:scale-[1.02]">
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-3.5">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="px-3 py-1 rounded-full bg-[#f7e9e0] text-[#a3512d] text-[11px] font-semibold uppercase tracking-wide">05 · Enterprise RAG</span>
+                <span class="font-mono-tech text-xs text-[#8b7d72]">FAISS · pgvector</span>
+              </div>
+
+              <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-[#29221e] leading-snug">
+                Multi-Source RAG Q&amp;A Engine
+              </h3>
+
+              <dl class="space-y-2 text-[13.5px] leading-relaxed">
+                <div class="flex gap-2">
+                  <dt class="w-24 flex-shrink-0 font-mono-tech text-[11px] font-semibold uppercase tracking-wider text-[#8b7d72] pt-0.5">Problem</dt>
+                  <dd class="text-[#5b4f47]">Noisy PDFs and CSV spreadsheets break naive fixed-length chunking, producing fragmented context and hallucinated answers.</dd>
+                </div>
+                <div class="flex gap-2">
+                  <dt class="w-24 flex-shrink-0 font-mono-tech text-[11px] font-semibold uppercase tracking-wider text-[#c1663c] pt-0.5">Decision</dt>
+                  <dd class="text-[#29221e]">Designed a clean multi-format ingestion pipeline with custom semantic chunking and hot-swappable <strong>FAISS / pgvector</strong> indexes for LLaMA.</dd>
+                </div>
+                <div class="flex gap-2">
+                  <dt class="w-24 flex-shrink-0 font-mono-tech text-[11px] font-semibold uppercase tracking-wider text-emerald-700 pt-0.5">Proof</dt>
+                  <dd class="text-[#5b4f47]">Higher context precision across heterogeneous PDF/CSV documents with portable vector store abstraction.</dd>
+                </div>
+              </dl>
+
+              <div class="flex flex-wrap items-center gap-3 pt-1">
+                <button type="button" onclick="openProjectModal(1)" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold btn-ceramic cursor-pointer">
+                  <span>Read Case Study &amp; Trade-offs</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SKILLS & CREDENTIALS (Soft Sand) -->
+    <section id="skills" class="bg-[#f4ece1] py-20 lg:py-24 border-b border-[#e5dbcd]">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-16">
+        <div>
+          <div class="section-eyebrow mb-3">Toolkit</div>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-[#29221e] mb-8">Technical Skills</h2>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="editorial-card p-5">
+              <h3 class="text-xs font-semibold uppercase tracking-wider text-[#c1663c] mb-3">AI &amp; LLM Systems</h3>
+              <div class="flex flex-wrap gap-1.5 text-xs text-[#29221e]">
+                <span class="px-2.5 py-1 rounded-full bg-[#fbf9f6] border border-[#e5dbcd]">LangGraph</span>
+                <span class="px-2.5 py-1 rounded-full bg-[#fbf9f6] border border-[#e5dbcd]">LangChain</span>
+                <span class="px-2.5 py-1 rounded-full bg-[#fbf9f6] border border-[#e5dbcd]">RAG &amp; Hybrid Search</span>
+                <span class="px-2.5 py-1 rounded-full bg-[#fbf9f6] border border-[#e5dbcd]">Gemini / OpenAI</span>
+                <span class="px-2.5 py-1 rounded-full bg-[#fbf9f6] border border-[#e5dbcd]">LLM Evaluation</span>
+                <span class="px-2.5 py-1 rounded-full bg-[#fbf9f6] border border-[#e5dbcd]">Hugging Face</span>
+              </div>
+            </div>
+
+            <div class="editorial-card p-5">
+              <h3 class="text-xs font-semibold uppercase tracking-wider text-[#c1663c] mb-3">Computer Vision</h3>
+              <div class="flex flex-wrap gap-1.5 text-xs text-[#29221e]">
+                <span class="px-2.5 py-1 rounded-full bg-[#fbf9f6] border border-[#e5dbcd]">PyTorch</span>
+                <span class="px-2.5 py-1 rounded-full bg-[#fbf9f6] border border-[#e5dbcd]">YOLOv6 / v8 / v26</span>
+                <span class="px-2.5 py-1 rounded-full bg-[#fbf9f6] border border-[#e5dbcd]">DETR</span>
+                <span class="px-2.5 py-1 rounded-full bg-[#fbf9f6] border border-[#e5dbcd]">ONNX Runtime</span>
+                <span class="px-2.5 py-1 rounded-full bg-[#fbf9f6] border border-[#e5dbcd]">Triton Server</span>
+                <span class="px-2.5 py-1 rounded-full bg-[#fbf9f6] border border-[#e5dbcd]">OpenCV &amp; OCR</span>
+              </div>
+            </div>
+
+            <div class="editorial-card p-5">
+              <h3 class="text-xs font-semibold uppercase tracking-wider text-[#c1663c] mb-3">Backend &amp; Data</h3>
+              <div class="flex flex-wrap gap-1.5 text-xs text-[#29221e]">
+                <span class="px-2.5 py-1 rounded-full bg-[#fbf9f6] border border-[#e5dbcd]">Python</span>
+                <span class="px-2.5 py-1 rounded-full bg-[#fbf9f6] border border-[#e5dbcd]">FastAPI &amp; Pydantic</span>
+                <span class="px-2.5 py-1 rounded-full bg-[#fbf9f6] border border-[#e5dbcd]">SQLAlchemy &amp; Alembic</span>
+                <span class="px-2.5 py-1 rounded-full bg-[#fbf9f6] border border-[#e5dbcd]">PostgreSQL / pgvector</span>
+                <span class="px-2.5 py-1 rounded-full bg-[#fbf9f6] border border-[#e5dbcd]">Qdrant &amp; FAISS</span>
+                <span class="px-2.5 py-1 rounded-full bg-[#fbf9f6] border border-[#e5dbcd]">REST &amp; Webhooks</span>
+              </div>
+            </div>
+
+            <div class="editorial-card p-5">
+              <h3 class="text-xs font-semibold uppercase tracking-wider text-[#c1663c] mb-3">Frontend, MLOps &amp; QA</h3>
+              <div class="flex flex-wrap gap-1.5 text-xs text-[#29221e]">
+                <span class="px-2.5 py-1 rounded-full bg-[#fbf9f6] border border-[#e5dbcd]">Next.js &amp; TypeScript</span>
+                <span class="px-2.5 py-1 rounded-full bg-[#fbf9f6] border border-[#e5dbcd]">Docker</span>
+                <span class="px-2.5 py-1 rounded-full bg-[#fbf9f6] border border-[#e5dbcd]">MLflow &amp; lakeFS</span>
+                <span class="px-2.5 py-1 rounded-full bg-[#fbf9f6] border border-[#e5dbcd]">GitHub Actions CI</span>
+                <span class="px-2.5 py-1 rounded-full bg-[#fbf9f6] border border-[#e5dbcd]">pytest · mypy · ruff</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education & Credentials -->
+        <div id="credentials">
+          <div class="section-eyebrow mb-3">Academic &amp; Recognition</div>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-[#29221e] mb-8">Education, Publication &amp; Certifications</h2>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+            <div class="lg:col-span-5 space-y-4">
+              <div class="editorial-card p-5">
+                <div class="text-xs font-mono-tech text-[#8b7d72]">2025 – Present</div>
+                <h3 class="text-base font-bold text-[#29221e] mt-1">Master of Software Engineering (AI)</h3>
+                <p class="text-sm text-[#5b4f47]">FPT School of Business &amp; Technology (FSB)</p>
+              </div>
+              <div class="editorial-card p-5">
+                <div class="text-xs font-mono-tech text-[#8b7d72]">2021 – 2025 · GPA 3.4 / 4.0</div>
+                <h3 class="text-base font-bold text-[#29221e] mt-1">Bachelor of Artificial Intelligence</h3>
+                <p class="text-sm text-[#5b4f47]">FPT University</p>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-4">
+              <a href="https://ctujs.ctu.edu.vn/index.php/ctujs/article/view/716" target="_blank" rel="noopener noreferrer" class="editorial-card p-5 block group">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="px-2.5 py-0.5 rounded-full bg-[#f7e9e0] text-[#a3512d] text-[11px] font-semibold">Peer-Reviewed Publication</span>
+                  <i data-lucide="arrow-up-right" class="w-4 h-4 text-[#8b7d72] group-hover:text-[#c1663c]"></i>
+                </div>
+                <h3 class="text-base font-bold text-[#29221e] mt-2 group-hover:text-[#c1663c] transition-colors">
+                  Optimizing MediaPipe Landmark Models for Real-Time Vietnamese Sign Language Recognition
+                </h3>
+                <p class="text-xs text-[#5b4f47] mt-1">Can Tho University Journal of Science</p>
+              </a>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <a href="https://www.coursera.org/account/accomplishments/specialization/SNVPADABDEJE" target="_blank" rel="noopener noreferrer" class="editorial-card p-4 hover:border-[#c1663c]">
+                  <div class="text-[11px] text-[#8b7d72] font-medium">DeepLearning.AI</div>
+                  <div class="text-sm font-semibold text-[#29221e] mt-0.5">NLP Specialization ↗</div>
+                </a>
+                <a href="https://www.coursera.org/account/accomplishments/specialization/VNFNEQYKKLFH" target="_blank" rel="noopener noreferrer" class="editorial-card p-4 hover:border-[#c1663c]">
+                  <div class="text-[11px] text-[#8b7d72] font-medium">DeepLearning.AI</div>
+                  <div class="text-sm font-semibold text-[#29221e] mt-0.5">TensorFlow Developer ↗</div>
+                </a>
+                <a href="https://www.coursera.org/account/accomplishments/specialization/9487QFFKTT67" target="_blank" rel="noopener noreferrer" class="editorial-card p-4 hover:border-[#c1663c]">
+                  <div class="text-[11px] text-[#8b7d72] font-medium">IBM</div>
+                  <div class="text-sm font-semibold text-[#29221e] mt-0.5">AI Enterprise Workflow ↗</div>
+                </a>
+                <a href="https://www.coursera.org/account/accomplishments/specialization/LPDSP3FLTGYH" target="_blank" rel="noopener noreferrer" class="editorial-card p-4 hover:border-[#c1663c]">
+                  <div class="text-[11px] text-[#8b7d72] font-medium">IBM</div>
+                  <div class="text-sm font-semibold text-[#29221e] mt-0.5">Full Stack Developer ↗</div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CONTACT SECTION (Warm Ceramic) -->
+    <section id="contact" class="hero-ambient py-20 lg:py-24">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <div class="section-eyebrow justify-center mb-3">Contact</div>
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-[#29221e]">
+          Let's build something<span class="text-[#c1663c]">.</span>
+        </h2>
+        <p class="mt-3 text-[15px] text-[#5b4f47] max-w-xl mx-auto">
+          Available for full-time AI Engineer roles and selective remote product builds. Reach out directly or send a quick note below.
+        </p>
+
+        <div class="mt-6 flex flex-wrap justify-center gap-2.5 text-xs font-medium">
+          <a href="mailto:nth120923@gmail.com" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full btn-ceramic">
+            <i data-lucide="mail" class="w-3.5 h-3.5 text-[#c1663c]"></i>
+            <span>nth120923@gmail.com</span>
+          </a>
+          <a href="tel:+84989068343" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full btn-ceramic">
+            <i data-lucide="phone" class="w-3.5 h-3.5 text-[#c1663c]"></i>
+            <span>+84 989 068 343</span>
+          </a>
+          <a href="https://www.linkedin.com/in/hoangnt1209" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full btn-ceramic">
+            <svg class="w-3.5 h-3.5 text-[#c1663c]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://github.com/Hoangnt1209" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full btn-ceramic">
+            <svg class="w-3.5 h-3.5 text-[#c1663c]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            <span>GitHub</span>
+          </a>
+        </div>
+
+        <form onsubmit="handleContactSubmit(event)" class="editorial-card mt-10 p-6 sm:p-8 text-left space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="contact-name" class="block text-xs font-semibold text-[#5b4f47] mb-1.5">Your name</label>
+              <input id="contact-name" type="text" required placeholder="Alex Nguyen" class="w-full px-3.5 py-2.5 rounded-xl bg-[#fbf9f6] border border-[#e5dbcd] text-sm text-[#29221e] focus:outline-none focus:border-[#c1663c]">
+            </div>
+            <div>
+              <label for="contact-email" class="block text-xs font-semibold text-[#5b4f47] mb-1.5">Email</label>
+              <input id="contact-email" type="email" required placeholder="alex@company.com" class="w-full px-3.5 py-2.5 rounded-xl bg-[#fbf9f6] border border-[#e5dbcd] text-sm text-[#29221e] focus:outline-none focus:border-[#c1663c]">
+            </div>
+          </div>
+          <div>
+            <label for="contact-message" class="block text-xs font-semibold text-[#5b4f47] mb-1.5">Message</label>
+            <textarea id="contact-message" rows="4" required placeholder="Tell me about the role or project..." class="w-full px-3.5 py-2.5 rounded-xl bg-[#fbf9f6] border border-[#e5dbcd] text-sm text-[#29221e] focus:outline-none focus:border-[#c1663c]"></textarea>
+          </div>
+          <button type="submit" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-medium btn-terracotta cursor-pointer">
+            <span>Send Message</span>
+            <i data-lucide="send" class="w-4 h-4"></i>
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Minimal Editorial Footer -->
+  <footer class="bg-[#f4ece1] border-t border-[#e5dbcd] py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8b7d72]">
+      <div>© 2026 Nguyễn Thanh Hoàng. Built with calm editorial precision.</div>
+      <a href="assets/Nguyen_Thanh_Hoang_CV.pdf" download="Nguyen_Thanh_Hoang_CV.pdf" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full btn-ceramic text-xs font-medium text-[#29221e]">
+        <i data-lucide="file-text" class="w-3.5 h-3.5 text-[#c1663c]"></i>
+        <span>Export as CV (PDF)</span>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Light-Ceramic Project Architecture & Gallery Modal -->
+  <div id="project-modal" onclick="if (event.target === this) closeProjectModal()" class="project-modal-backdrop fixed inset-0 z-50 bg-[#29221e]/50 flex items-center justify-center p-4">
+    <div class="bg-white border border-[#e5dbcd] rounded-3xl max-w-5xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+      <div class="sticky top-0 z-10 bg-white/95 border-b border-[#e5dbcd] px-6 py-4 flex items-center justify-between">
+        <span id="modal-domain-badge" class="px-3 py-1 rounded-full bg-[#f7e9e0] text-[#a3512d] text-xs font-semibold"></span>
+        <button type="button" onclick="closeProjectModal()" aria-label="Close modal" class="p-2 rounded-full text-[#5b4f47] hover:bg-[#f4ece1] cursor-pointer">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <div class="p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div class="lg:col-span-7 space-y-3">
+          <div class="rounded-2xl border border-[#e5dbcd] bg-[#fbf9f6] p-2 flex items-center justify-center min-h-[280px]">
+            <img id="modal-visual-img" src="" alt="Project preview" class="w-full max-h-[420px] object-contain rounded-xl cursor-zoom-in" title="Click to open full-resolution image">
+          </div>
+          <div id="modal-gallery-container" class="flex flex-wrap gap-2"></div>
+          <p class="text-[11px] text-[#8b7d72]">Tip: Click the image above to open full resolution in a new tab.</p>
+        </div>
+
+        <div class="lg:col-span-5 flex flex-col justify-between space-y-5">
+          <div class="space-y-4">
+            <h3 id="modal-title" class="text-2xl font-bold tracking-tight text-[#29221e] leading-snug"></h3>
+            <div class="text-xs text-[#8b7d72] flex flex-wrap gap-x-4 gap-y-1">
+              <span>Role: <strong id="modal-team" class="text-[#29221e]"></strong></span>
+              <span>Type: <strong id="modal-type" class="text-[#29221e]"></strong></span>
+            </div>
+
+            <div class="space-y-3 text-[13.5px] leading-relaxed">
+              <div>
+                <div class="font-mono-tech text-[10.5px] font-semibold uppercase tracking-wider text-[#8b7d72] mb-1">01 · Problem &amp; Constraints</div>
+                <p id="modal-problem" class="text-[#5b4f47]"></p>
+              </div>
+              <div>
+                <div class="font-mono-tech text-[10.5px] font-semibold uppercase tracking-wider text-[#c1663c] mb-1">02 · System Architecture &amp; Approach</div>
+                <p id="modal-approach" class="text-[#29221e]"></p>
+              </div>
+              <div class="p-3.5 rounded-xl bg-[#f4ece1] border border-[#e5dbcd]">
+                <div class="font-mono-tech text-[10.5px] font-semibold uppercase tracking-wider text-[#a3512d] mb-1.5">03 · Engineering Trade-offs (Why X over Y)</div>
+                <ul id="modal-tradeoffs" class="list-disc pl-4 space-y-1.5 text-xs text-[#29221e]"></ul>
+              </div>
+              <div>
+                <div class="font-mono-tech text-[10.5px] font-semibold uppercase tracking-wider text-emerald-700 mb-1">04 · Verification &amp; Impact</div>
+                <p id="modal-impact" class="text-[#5b4f47]"></p>
+              </div>
+            </div>
+
+            <div>
+              <div class="text-[11px] font-semibold uppercase tracking-wider text-[#8b7d72] mb-2">Tech Stack</div>
+              <div id="modal-stack-pills" class="flex flex-wrap gap-1.5"></div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2.5 pt-2">
+            <a id="modal-live-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-semibold btn-terracotta">
+              <span>Live Demo</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+            <a id="modal-repo-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-semibold btn-ceramic">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              <span>GitHub Repo</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" type="button" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" aria-label="Back to top" class="fixed bottom-24 right-6 z-30 w-10 h-10 rounded-full bg-white border border-[#e5dbcd] text-[#29221e] shadow-md flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-200 hover:bg-[#f4ece1] cursor-pointer">
+    <i data-lucide="arrow-up" class="w-4 h-4"></i>
+  </button>
+
+  <!-- Silky-Smooth 60fps AI Portfolio Guide Launcher -->
+  <div id="agent-launcher-wrapper" class="fixed bottom-6 right-6 z-40">
+    <button type="button" onclick="openAgentChat()" aria-label="Open AI Portfolio Guide" class="inline-flex items-center gap-2 px-4 py-3 rounded-full btn-terracotta shadow-lg cursor-pointer text-xs font-semibold">
+      <i data-lucide="sparkles" class="w-4 h-4"></i>
+      <span>Ask AI Guide</span>
+      <kbd class="hidden sm:inline-block px-1.5 py-0.5 rounded bg-white/20 text-[10px] font-mono-tech">⌘K</kbd>
+    </button>
+  </div>
+
+  <!-- Silky-Smooth 60fps AI Portfolio Guide Panel (Solid Raised White, Zero Blur Lag) -->
+  <div id="agent-chat-modal" class="agent-panel fixed bottom-6 right-6 z-50 w-[350px] sm:w-[390px] max-w-[calc(100vw-2rem)] h-[500px] max-h-[82vh] bg-white border border-[#e5dbcd] rounded-2xl shadow-[0_24px_60px_-20px_rgba(41,34,30,0.3)] flex flex-col overflow-hidden">
+    <div class="px-4 py-3 bg-[#fbf9f6] border-b border-[#e5dbcd] flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-full bg-[#f7e9e0] text-[#c1663c] flex items-center justify-center">
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+        </div>
+        <div>
+          <div class="text-sm font-bold text-[#29221e] leading-tight">hoang.agent</div>
+          <div class="text-[11px] text-[#8b7d72]">Portfolio AI Guide</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-1">
+        <button type="button" onclick="clearAgentChat()" title="Clear chat" class="p-1.5 rounded-lg text-[#8b7d72] hover:text-[#29221e] hover:bg-[#f4ece1] cursor-pointer">
+          <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+        </button>
+        <button type="button" onclick="closeAgentChat()" title="Close (Esc)" class="p-1.5 rounded-lg text-[#8b7d72] hover:text-[#29221e] hover:bg-[#f4ece1] cursor-pointer">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
     </div>
 
-    <!-- CYBERPUNK DORAEMON TOAST NOTIFICATION CONTAINER -->
-    <div id="cyber-toast-container" class="fixed bottom-6 right-6 z-[200] flex flex-col gap-3 pointer-events-none max-w-sm w-full px-4"></div>
+    <div id="agent-chat-messages" class="flex-1 overflow-y-auto p-4 space-y-3 bg-[#fbf9f6]"></div>
 
-    <!-- MODULAR CORE JAVASCRIPT SYSTEM SCRIPTS -->
-    <script src="js/data.js?v=3"></script>
-    <script src="js/agent.js?v=3"></script>
-    <script src="js/ui.js?v=3"></script>
-    <script src="app.js?v=3"></script>
+    <div class="bg-white border-t border-[#e5dbcd] p-3 space-y-2">
+      <div id="agent-suggestion-pills" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar"></div>
+      <form onsubmit="handleAgentChatSubmit(event)" class="flex items-center gap-2">
+        <input id="agent-chat-input" type="text" autocomplete="off" placeholder="Ask about Floren AI, VietStock, CV..." class="flex-1 px-3.5 py-2 rounded-full bg-[#fbf9f6] border border-[#e5dbcd] text-xs text-[#29221e] placeholder-[#8b7d72] focus:outline-none focus:border-[#c1663c]">
+        <button type="submit" aria-label="Send" class="w-9 h-9 rounded-full btn-terracotta flex items-center justify-center flex-shrink-0 cursor-pointer">
+          <i data-lucide="send" class="w-3.5 h-3.5"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="fixed bottom-6 left-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <script src="js/data.js?v=4"></script>
+  <script src="js/agent.js?v=4"></script>
+  <script src="js/ui.js?v=4"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>
