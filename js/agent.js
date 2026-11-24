@@ -13,6 +13,12 @@ const SUGGESTED_PROMPTS = [
     target: 'project-floren',
   },
   {
+    id: 'loiban-ai',
+    label: 'Lời Bản (Offline Edge AI)',
+    prompt: 'Tell me about Lời Bản — the offline Hmong-Vietnamese speech translator.',
+    target: 'project-loiban',
+  },
+  {
     id: 'vietstock-ai',
     label: 'VietStock AI',
     prompt: 'Tell me about VietStock AI.',
@@ -189,6 +195,17 @@ function generateAgentResponse(query, targetOverride = null) {
       <div class="flex flex-wrap gap-1.5">
         <button type="button" onclick="openProjectModal(3)" class="chat-action-btn">View Architecture &amp; Gallery</button>
         <a href="https://github.com/Hoangnt1209/floren-ai" target="_blank" rel="noopener noreferrer" class="chat-action-btn">GitHub ↗</a>
+      </div>`;
+  }
+
+  if (q.includes('loiban') || q.includes('lời bản') || q.includes('hmong') || q.includes('mông') || q.includes('offline') || q.includes('speech') || q.includes('translation')) {
+    navigateToSection(targetOverride || 'project-loiban');
+    return `
+      <p class="font-semibold text-[#29221e] mb-1">Lời Bản — Offline Edge AI Speech Translator</p>
+      <p class="text-[#5b4f47] mb-2">100% offline Android Speech-to-Speech app (Vietnamese ⇄ Hmong MVN) combining <strong>Streaming Zipformer ASR</strong> (21.50% WER, INT8), QLoRA-tuned <strong>Qwen2.5-1.5B</strong> (GGUF Q4_K_M on llama.cpp), and <strong>VITS Piper TTS</strong> trained on VOV4 audio.</p>
+      <div class="flex flex-wrap gap-1.5">
+        <button type="button" onclick="openProjectModal(6)" class="chat-action-btn">Read Case Study</button>
+        <a href="https://github.com/Hoangnt1209/Loi_Ban_AI_Translation" target="_blank" rel="noopener noreferrer" class="chat-action-btn">GitHub ↗</a>
       </div>`;
   }
 

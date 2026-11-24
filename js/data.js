@@ -57,6 +57,45 @@ const projectsData = {
       ],
     },
   },
+  6: {
+    id: 6,
+    title: "Lời Bản — Offline Edge AI Speech-to-Speech Translator",
+    subtitle: "Data for Life 2026 · 100% Offline Android Edge AI",
+    team: "Solo AI & Edge Systems Engineer",
+    type: "Edge AI · Speech & Quantized LLM",
+    category: "nlp",
+    routing: "loiban.apk (100% Offline Android)",
+    githubUrl: "https://github.com/Hoangnt1209/Loi_Ban_AI_Translation",
+    image: "assets/project_loiban.png",
+    gallery: [
+      { src: "assets/project_loiban.png", label: "3-Screen App Overview" },
+      { src: "assets/loiban_chat.png", label: "Voice Interpretation" },
+      { src: "assets/loiban_dict.png", label: "Dictionary & 8 RPA Tones" },
+      { src: "assets/loiban_broadcast.png", label: "Loudspeaker Broadcast" },
+    ],
+    stack: [
+      "Streaming Zipformer (Sherpa-ONNX)",
+      "Qwen2.5-1.5B (QLoRA + GGUF Q4_K_M)",
+      "llama.cpp (Android Native)",
+      "VITS Piper TTS (22.05 kHz)",
+      "Android / Capacitor",
+      "VOV4 Data Pipeline",
+      "INT8 / INT4 Quantization",
+    ],
+    pait: {
+      problem:
+        "Commune police and field officers in highland regions (Cao Bằng) face severe Vietnamese–Hmong language barriers during patrols and administrative procedures where 4G/Wi-Fi is unavailable and cloud translation APIs fail completely.",
+      approach:
+        "Architected a 100% offline 3-stage on-device Speech-to-Speech pipeline inside a self-contained Android APK (~1.45 GB): (1) Streaming Zipformer ASR (Sherpa-ONNX INT8, 70.49 MB encoder, RTF 0.015), (2) Qwen2.5-1.5B-Instruct fine-tuned with 4-bit NF4 QLoRA on 19,454 bidirectional Vietnamese ⇄ Hmong (MVN) pairs and quantized to GGUF Q4_K_M (~986 MB) via native llama.cpp, and (3) VITS Piper ONNX TTS (22.05 kHz, 77.28 MB) trained on 1,928 VOV4 broadcaster clips.",
+      impact:
+        "Achieved 21.50% Greedy WER / 14.90% CER on Hmong MVN ASR (~50ms latency), accurate legal/administrative code-switching (VNeID, ID cards, proper nouns) in translation, and natural 22.05 kHz offline speech synthesis plus 7 patrol loudspeaker broadcasts.",
+      tradeoffs: [
+        "100% on-device Zipformer + Q4_K_M Qwen2.5-1.5B + VITS Piper instead of cloud Whisper/GPT APIs — guarantees zero-connectivity operation in mountain communes at the cost of a ~1.45 GB APK footprint.",
+        "Fine-tuned 1.5B QLoRA model quantized to INT4 instead of a generic 7B+ multilingual LLM — runs smoothly on mid-range Android RAM while preserving strict MVN orthography and Vietnamese administrative loanwords.",
+        "Custom VOV4 broadcaster audio dataset for VITS Piper instead of zero-shot voice cloning — required building a dedicated crawler & sentence alignment pipeline, but delivered clean 22.05 kHz code-switched pronunciation.",
+      ],
+    },
+  },
   5: {
     id: 5,
     title: "VietStock AI — Autonomous Stock Market Intelligence",
