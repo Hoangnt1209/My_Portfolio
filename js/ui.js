@@ -139,18 +139,67 @@ function showToast(message) {
   }, 3000);
 }
 
-function handleContactSubmit(e) {
+async function handleContactSubmit(e) {
   e.preventDefault();
+  const honey = (document.getElementById('contact-honey')?.value || '').trim();
+  if (honey) return; // Honeypot anti-spam
+
   const name = (document.getElementById('contact-name')?.value || '').trim();
   const email = (document.getElementById('contact-email')?.value || '').trim();
   const msg = (document.getElementById('contact-message')?.value || '').trim();
   if (!name || !email || !msg) return;
 
-  const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
-  const body = encodeURIComponent(`From: ${name} (${email})\n\n${msg}`);
-  window.location.href = `mailto:nth120923@gmail.com?subject=${subject}&body=${body}`;
-  showToast('Opening your email client to send message to nth120923@gmail.com');
-  e.target.reset();
+  const btn = document.getElementById('contact-submit-btn');
+  const label = document.getElementById('contact-submit-label');
+  const statusEl = document.getElementById('contact-status');
+
+  const setStatus = (text, isError = false) => {
+    if (!statusEl) return;
+    statusEl.textContent = text;
+    statusEl.className = `text-xs font-medium ${isError ? 'text-red-700' : 'text-emerald-700'}`;
+  };
+
+  if (btn) btn.disabled = true;
+  if (label) label.textContent = 'Sending...';
+  if (statusEl) statusEl.className = 'hidden text-xs font-medium';
+
+  try {
+    const res = await fetch('https://formsubmit.co/ajax/nth120923@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        message: msg,
+        _subject: `Portfolio Inquiry from ${name}`,
+        _replyto: email,
+        _template: 'table',
+        _captcha: 'false',
+      }),
+    });
+
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || data.success === 'false' || data.success === false) {
+      throw new Error(data.message || 'Delivery failed');
+    }
+
+    setStatus("Message sent! I'll reply to your email soon.");
+    showToast('Message delivered directly to nth120923@gmail.com!');
+    e.target.reset();
+  } catch (err) {
+    // Graceful fallback to mailto if offline or blocked
+    const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
+    const body = encodeURIComponent(`From: ${name} (${email})\n\n${msg}`);
+    setStatus('Opening your email app as a fallback...', true);
+    showToast('Direct send unavailable — opening your email client instead.');
+    window.location.href = `mailto:nth120923@gmail.com?subject=${subject}&body=${body}`;
+  } finally {
+    if (btn) btn.disabled = false;
+    if (label) label.textContent = 'Send Message';
+  }
 }
 
 window.addEventListener(
